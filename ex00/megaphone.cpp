@@ -6,14 +6,11 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 21:05:34 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/26 14:43:42 by msalena          ###   ########.fr       */
+/*   Updated: 2022/01/27 16:35:37 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <iostream>
-#include <string>
-#include <cctype>
+#include "megaphone.hpp"
 
 void	my_toupper(std::string& str){
 	for(size_t i=0; i < str.size(); i++)

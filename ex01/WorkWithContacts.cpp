@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_contact.cpp                                    :+:      :+:    :+:   */
+/*   WorkWithContacts.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 14:36:39 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/27 14:43:58 by msalena          ###   ########.fr       */
+/*   Updated: 2022/01/27 18:24:26 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	printing_contact(PhoneBook& tele_libro, size_t i){
 static void	fields_initialization(Contact& new_cont){
 	std::string	input_str;
 
+// std::cin.ignore( std::numeric_limits<streamsize>::max(), '\n') ;
 	std::cout << "	First name: ";
 	std::cin >> input_str;
 	new_cont.take_first_name(input_str);

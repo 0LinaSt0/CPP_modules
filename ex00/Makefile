@@ -6,10 +6,11 @@
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/26 13:42:21 by msalena           #+#    #+#              #
-#    Updated: 2022/01/26 14:20:43 by msalena          ###   ########.fr        #
+#    Updated: 2022/01/27 18:41:27 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+HEAD		=		megaphone.hpp
 
 SRCS		=		megaphone.cpp
 
@@ -24,10 +25,10 @@ FLAGS		=		-std=c++98 -Wall -Wextra -Werror
 all:			$(PROG_NAME)
 
 
-%.o:			%.cpp
+%.o:			%.cpp $(HEAD)
 				$(GCC) $(FLAGS) -c $< -o $@
 
-$(PROG_NAME):	$(OBJS) Makefile
+$(PROG_NAME):	$(OBJS) $(HEAD) Makefile
 				$(GCC) $(FLAGS) $(OBJS) -o $(PROG_NAME)
 
 clean:
