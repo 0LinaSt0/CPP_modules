@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 14:36:39 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/29 16:23:14 by msalena          ###   ########.fr       */
+/*   Updated: 2022/01/29 19:27:24 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	printing_contact(PhoneBook& tele_libro, size_t i){
 
 static void	fields_initialization(Contact& new_cont){
 	std::string	input_str;
-
-	std::cin.ignore(1, '\n'); //don't take new str before not see \n
 
 	for(int fl = 1; fl; ){
 		std::cout << "	First name: ";

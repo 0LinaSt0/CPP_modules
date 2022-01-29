@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:44:43 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/29 16:19:09 by msalena          ###   ########.fr       */
+/*   Updated: 2022/01/29 19:22:57 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,22 @@ private:
 	std::string	phone_number;
 	std::string	darkest_secret;
 public:
+	std::string	getFirstName(){
+		return (first_name);
+	}
+	std::string	getLastName(){
+		return (last_name);
+	}
+	std::string	getNickname(){
+		return (nickname);
+	}
+	std::string	getPhoneNumber(){
+		return (phone_number);
+	}
+	std::string	getDarkestSecret(){
+		return (darkest_secret);
+	}
+
 	void	index_init(size_t index_count){
 		index = index_count;
 	}
@@ -36,7 +52,7 @@ public:
 	}
 
 	int	take_first_name(std::string str){
-		if (str.length() < 2){
+		if (str.length() < 1){
 			std::cout << Error << std::endl;
 			return 1;
 		}
@@ -61,7 +77,7 @@ public:
 	}
 
 	int	take_last_name(std::string str){
-		if (str.length() < 2){
+		if (str.length() < 1){
 			std::cout << Error << std::endl;
 			return 1;
 		}
@@ -86,7 +102,7 @@ public:
 	}
 
 	int	take_nickname(std::string str){
-		if (str.length() < 2){
+		if (str.length() < 1){
 			std::cout << Error << std::endl;
 			return 1;
 		}
@@ -111,7 +127,7 @@ public:
 	}
 
 	int	take_phone_number(std::string str){
-		if (str.length() < 2){
+		if (str.length() < 1){
 			std::cout << Error << std::endl;
 			return 1;
 		}
@@ -120,7 +136,7 @@ public:
 	}
 
 	int	take_darkest_secret(std::string str){
-		if (str.length() < 2){
+		if (str.length() < 1){
 			std::cout << Error << std::endl;
 			return 1;
 		}

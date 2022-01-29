@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Search_contacts.cpp                                :+:      :+:    :+:   */
+/*   SearchContacts.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 14:47:05 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/27 14:56:01 by msalena          ###   ########.fr       */
+/*   Updated: 2022/01/29 19:26:00 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,17 @@ static int	index_error_OtherIndex(size_t index, PhoneBook& tele_libro){
 	return 0;
 }
 
+static void	printing_special_contact(PhoneBook& tele_libro, size_t i){
+	Contact	cont;
+
+	tele_libro.take_contact(i, cont);
+	std::cout << "	First name: " << cont.getFirstName() << std::endl;
+	std::cout << "	Last name: " << cont.getLastName() << std::endl;
+	std::cout << "	Nickname: " << cont.getNickname() << std::endl;
+	std::cout << "	Phone number: " << cont.getPhoneNumber() << std::endl;
+	std::cout << "	Darkest secret: " << cont.getDarkestSecret() << std::endl << std::endl;
+}
+
 static void	showing_special_contact(PhoneBook& tele_libro){
 	std::string	input_str;
 	size_t		contact_index;
@@ -48,7 +59,7 @@ static void	showing_special_contact(PhoneBook& tele_libro){
 	if (index_error_OtherIndex(contact_index, tele_libro))
 		return ;
 	std::cout << std::endl;
-	printing_contact(tele_libro, (contact_index - 1));
+	printing_special_contact(tele_libro, (contact_index - 1));
 }
 
 void	search_contact(PhoneBook& tele_libro){

@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 17:25:07 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/27 21:12:01 by msalena          ###   ########.fr       */
+/*   Updated: 2022/01/29 17:52:04 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ Account::Account( int initial_deposit ){
 	Account::_displayTimestamp();
 	std::cout << "] " << "index:" << Account::getNbAccounts() << ";"
 		<< "amount:" << initial_deposit << ";" << "created" << std::endl;
+	this->_nbDeposits = 0;
+	this->_nbWithdrawals = 0;
 	this->_amount = initial_deposit;
 	this->_accountIndex = Account::_nbAccounts;
 	Account::_nbAccounts++;
@@ -56,7 +58,7 @@ int	Account::getNbWithdrawals( void ){
 }
 
 void	Account::displayAccountsInfos( void ){
-	std::cout << "["; 
+	std::cout << "[";
 	Account::_displayTimestamp();
 	std::cout << "] " << "accounts:" << Account::getNbAccounts() << ";"
 		<< "total:" << Account::getTotalAmount() << ";" << "deposits:"
@@ -72,8 +74,8 @@ void	Account::makeDeposit( int deposit ){
 	std::cout << "] " << "index:" << this->_accountIndex << ";"
 		<< "p_amount:" << this->_amount << ";" << "deposits:" << deposit
 		<< ";";
-	this->_amount += deposit; 
-	this->_nbDeposits = 1;
+	this->_amount += deposit;
+	this->_nbDeposits += 1;
 	std::cout << "amount:" << this->_amount << ";" << "nb_deposits:"
 		<< this->_nbDeposits << std::endl;
 	Account::_totalAmount += deposit;
@@ -91,7 +93,7 @@ bool	Account::makeWithdrawal( int withdrawal ){
 	} else {
 		std::cout << "withdrawals:" << withdrawal << ";";
 		this->_amount -=withdrawal;
-		this->_nbWithdrawals = 1;
+		this->_nbWithdrawals += 1;
 		std::cout << "amount:" << this->_amount << ";" << "nb_withdrawals:"
 		<< this->_nbWithdrawals << std::endl;
 		Account::_totalAmount -= withdrawal;
