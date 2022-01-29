@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 14:47:05 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/29 19:26:00 by msalena          ###   ########.fr       */
+/*   Updated: 2022/01/29 19:54:15 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ static void	showing_special_contact(PhoneBook& tele_libro){
 	size_t		contact_index;
 
 	std::cout << "-->Do you want to see specific contact? (press y if yes): ";
-	std::cin >> input_str;
+	std::getline(std::cin, input_str);
 	if (input_str.compare("y")){
 		return ;
 	}
 	std::cout << "	Index of contact which you want to see: ";
-	std::cin >> input_str;
+	std::getline(std::cin, input_str);
 	if (index_error_NotNum(input_str))
 		return ;
 	contact_index = std::stol(input_str);

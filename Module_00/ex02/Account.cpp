@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 17:25:07 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/29 17:52:04 by msalena          ###   ########.fr       */
+/*   Updated: 2022/01/29 20:06:50 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,19 @@ int	Account::getNbWithdrawals( void ){
 }
 
 void	Account::displayAccountsInfos( void ){
+	std::cout << "\033[31m";
 	std::cout << "[";
 	Account::_displayTimestamp();
 	std::cout << "] " << "accounts:" << Account::getNbAccounts() << ";"
 		<< "total:" << Account::getTotalAmount() << ";" << "deposits:"
 		<< Account::getNbDeposits() << ";" << "withdrawals:" << Account::getNbWithdrawals() << std::endl;
+	std::cout <<  "\033[0m";
 }
 
 
 //methods
 void	Account::makeDeposit( int deposit ){
-
+	std::cout << "\033[32m";
 	std::cout << "[";
 	Account::_displayTimestamp();
 	std::cout << "] " << "index:" << this->_accountIndex << ";"
@@ -80,15 +82,18 @@ void	Account::makeDeposit( int deposit ){
 		<< this->_nbDeposits << std::endl;
 	Account::_totalAmount += deposit;
 	Account::_totalNbDeposits++;
+	std::cout << "\033[0m";
 }
 
 bool	Account::makeWithdrawal( int withdrawal ){
+	std::cout << "\033[33m";
 	std::cout << "[";
 	Account::_displayTimestamp();
 	std::cout << "] " << "index:" << this->_accountIndex << ";"
 		<< "p_amount:" << this->_amount << ";";
 	if ((this->_amount - withdrawal) < 0){
 		std::cout << "withdrawals:" << "refused" << std::endl;
+		std::cout << "\033[0m";
 		return false;
 	} else {
 		std::cout << "withdrawals:" << withdrawal << ";";
@@ -99,6 +104,7 @@ bool	Account::makeWithdrawal( int withdrawal ){
 		Account::_totalAmount -= withdrawal;
 		Account::_totalNbWithdrawals++;
 	}
+	std::cout << "\033[0m";
 	return true;
 }
 
@@ -107,11 +113,13 @@ int	Account::checkAmount( void ) const{
 }
 
 void	Account::displayStatus( void ) const{
+	std::cout << "\033[36m";
 	std::cout << "[";
 	Account::_displayTimestamp();
 	std::cout << "] " << "index:" << this->_accountIndex << ";"
 		<< "amount:" << this->_amount << ";" << "deposits:" << this->_nbDeposits
 		<< ";" << "withdrawals:" << this->_nbWithdrawals << std::endl;
+	std::cout <<"\033[0m";
 }
 
 

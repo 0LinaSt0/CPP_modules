@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:36:18 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/29 19:27:10 by msalena          ###   ########.fr       */
+/*   Updated: 2022/01/29 19:54:59 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int argc, char **argv){
 			return (0);
 		else{
 			std::cout << "-->Programm takes one of three arguments: ADD, SEARCH or EXIT:"
-				<< std::endl << "	pleas try one of that" << std::endl;
+				<< std::endl << "	please try one of that" << std::endl;
 		}
 	}
 	return (0);
