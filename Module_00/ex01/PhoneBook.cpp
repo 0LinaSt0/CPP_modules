@@ -6,13 +6,14 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:36:18 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/27 14:47:33 by msalena          ###   ########.fr       */
+/*   Updated: 2022/01/29 16:27:57 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 int	main(int argc, char **argv){
+
 	std::string	out_str;
 	PhoneBook	tele_libro;
 
@@ -22,11 +23,9 @@ int	main(int argc, char **argv){
 		std::cin >> out_str;
 		if (out_str.compare("ADD") == 0){
 			add_contact(tele_libro);
-		}
-		else if (out_str.compare("SEARCH") == 0){
+		}else if (out_str.compare("SEARCH") == 0){
 			search_contact(tele_libro);
-		}
-		else if (out_str.compare("EXIT") == 0)
+		}else if (out_str.compare("EXIT") == 0)
 			return (0);
 		else{
 			std::cout << "-->Programm takes one of three arguments: ADD, SEARCH or EXIT:"

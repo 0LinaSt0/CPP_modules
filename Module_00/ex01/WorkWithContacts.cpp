@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 14:36:39 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/27 18:24:26 by msalena          ###   ########.fr       */
+/*   Updated: 2022/01/29 16:23:14 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,33 @@ void	printing_contact(PhoneBook& tele_libro, size_t i){
 static void	fields_initialization(Contact& new_cont){
 	std::string	input_str;
 
-// std::cin.ignore( std::numeric_limits<streamsize>::max(), '\n') ;
-	std::cout << "	First name: ";
-	std::cin >> input_str;
-	new_cont.take_first_name(input_str);
-	std::cout << "	Last name: ";
-	std::cin >> input_str;
-	new_cont.take_last_name(input_str);
-	std::cout << "	Nickname: ";
-	std::cin >> input_str;
-	new_cont.take_nickname(input_str);
-	std::cout << "	Phone number: ";
-	std::cin >> input_str;
-	new_cont.take_phone_number(input_str);
-	std::cout << "	Darkest secret: ";
-	std::cin >> input_str;
-	new_cont.take_darkest_secret(input_str);
+	std::cin.ignore(1, '\n'); //don't take new str before not see \n
+
+	for(int fl = 1; fl; ){
+		std::cout << "	First name: ";
+		std::getline(std::cin, input_str);
+		fl = new_cont.take_first_name(input_str);
+	}
+	for(int fl = 1; fl; ){
+		std::cout << "	Last name: ";
+		std::getline(std::cin, input_str);
+		fl = new_cont.take_last_name(input_str);
+	}
+	for(int fl = 1; fl; ){
+		std::cout << "	Nickname: ";
+		std::getline(std::cin, input_str);
+		fl = new_cont.take_nickname(input_str);
+	}
+	for(int fl = 1; fl; ){
+		std::cout << "	Phone number: ";
+		std::getline(std::cin, input_str);
+		fl = new_cont.take_phone_number(input_str);
+	}
+	for(int fl = 1; fl; ){
+		std::cout << "	Darkest secret: ";
+		std::getline(std::cin, input_str);
+		fl = new_cont.take_darkest_secret(input_str);
+	}
 }
 
 void	add_contact(PhoneBook& tele_libro){

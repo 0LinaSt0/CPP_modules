@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:44:43 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/27 14:48:25 by msalena          ###   ########.fr       */
+/*   Updated: 2022/01/29 16:19:09 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <cctype>
 
 #define ConNum 8
+#define Error "	Please, write something in field"
 
 class Contact{
 private:
@@ -34,8 +35,13 @@ public:
 		std::cout << "  " << index << "       " << " | ";
 	}
 
-	void	take_first_name(std::string str){
+	int	take_first_name(std::string str){
+		if (str.length() < 2){
+			std::cout << Error << std::endl;
+			return 1;
+		}
 		first_name = str;
+		return 0;
 	}
 	void	print_first_name(){
 		size_t	i = 0;
@@ -54,8 +60,13 @@ public:
 		}
 	}
 
-	void	take_last_name(std::string str){
+	int	take_last_name(std::string str){
+		if (str.length() < 2){
+			std::cout << Error << std::endl;
+			return 1;
+		}
 		last_name = str;
+		return 0;
 	}
 	void	print_last_name(){
 		size_t	i = 0;
@@ -74,8 +85,13 @@ public:
 		}
 	}
 
-	void	take_nickname(std::string str){
+	int	take_nickname(std::string str){
+		if (str.length() < 2){
+			std::cout << Error << std::endl;
+			return 1;
+		}
 		nickname = str;
+		return 0;
 	}
 	void	print_nickname(){
 		size_t	i = 0;
@@ -94,12 +110,22 @@ public:
 		std::cout << std::endl;
 	}
 
-	void	take_phone_number(std::string str){
+	int	take_phone_number(std::string str){
+		if (str.length() < 2){
+			std::cout << Error << std::endl;
+			return 1;
+		}
 		phone_number = str;
+		return 0;
 	}
 
-	void	take_darkest_secret(std::string str){
+	int	take_darkest_secret(std::string str){
+		if (str.length() < 2){
+			std::cout << Error << std::endl;
+			return 1;
+		}
 		darkest_secret = str;
+		return 0;
 	}
 };
 

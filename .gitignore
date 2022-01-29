@@ -2,6 +2,7 @@
 *.d
 *.out
 megaphone
+Account
 *.dSYM/
 *.gch
 .*
