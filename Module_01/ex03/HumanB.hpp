@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 21:58:21 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/30 21:12:09 by msalena          ###   ########.fr       */
+/*   Created: 2022/01/30 18:34:08 by msalena           #+#    #+#             */
+/*   Updated: 2022/01/30 19:56:55 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef	HUMANB_HPP
+#define	HUMANB_HPP
 
-#include <string>
-#include <iostream>
-#include <sstream>
-#include <stdio.h>
+#include "Weapon.hpp"
 
-class	Zombie{
-	private:
-		std::string		name;
-		static size_t	N_zombe;
-	public:
-		Zombie ( void );
-		~Zombie( void );
-		void 	announce( void );
-		void	setName( std::string name );
+
+class HumanB{
+private:
+	std::string	name;
+	Weapon*		w;
+public:
+	HumanB( const std::string& came_name );
+	~HumanB( void );
+	void	setWeapon( Weapon& w_take );
+	void	attack( void );
 };
 
-Zombie* zombieHorde( int N, std::string name );
 #endif

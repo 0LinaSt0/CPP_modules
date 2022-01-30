@@ -5,26 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 14:24:58 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/30 17:54:04 by msalena          ###   ########.fr       */
+/*   Created: 2022/01/30 17:56:33 by msalena           #+#    #+#             */
+/*   Updated: 2022/01/30 19:21:41 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-int	main( void ){
-	std::string	name_1;
-	std::string	name_2;
-	Zombie*		Zombie_2;
-
-	std::cout << "Please, write name for stack zombie: ";
-	std::getline(std::cin, name_1, '\n');
-	std::cout << "Now, write name for heap zombie: ";
-	std::getline(std::cin, name_2, '\n');
-	std::cout << std::endl;
-	randomChump(name_1);
-	Zombie_2 = newZombie(name_2);
-	std::cout << "Oops, allocation problems" << std::endl;
-	delete Zombie_2;
-	return 0;
+int main( void )
+{
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+return 0;
 }
