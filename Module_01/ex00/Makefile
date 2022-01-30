@@ -5,37 +5,43 @@
 #                                                     +:+ +:+         +:+      #
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/01/27 14:57:11 by msalena           #+#    #+#              #
-#    Updated: 2022/01/30 14:28:04 by msalena          ###   ########.fr        #
+#    Created: 2022/01/30 14:08:41 by msalena           #+#    #+#              #
+#    Updated: 2022/01/30 14:28:21 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-HEAD		=		PhoneBook.hpp
+HEAD		=		Zombie.hpp
 
-SRCS		=		PhoneBook.cpp SearchContacts.cpp WorkWithContacts.cpp
+SRCS		=		Zombie.cpp randomChump.cpp newZombie.cpp main.cpp
 
-OBJS		=		${SRCS:.cpp=.o}
+OBJC		=		${SRCS:.cpp=.o}
 
-PROG_NAME	=		PhoneBook
+PROG_NAME	=		Zombie
 
 GCC			=		c++
 
 FLAGS		=		-std=c++98 -Wall -Wextra -Werror
 
-all:			$(PROG_NAME)
 
-%.o:			%.cpp $(HEAD)
-				$(GCC) $(FLAGS) -c $< -o $@
 
-$(PROG_NAME):	$(OBJS) $(HEAD) Makefile
-				$(GCC) $(FLAGS) $(OBJS) -o $(PROG_NAME)
+all:			Zombie
+
+%.o:			%.cpp ${HEAD}
+				${GCC} ${FLAGS} -c $< -o $@
+
+$(PROG_NAME):	${SRCS} ${OBJC} ${HEAD} Makefile
+				${GCC} ${FLAGS} ${OBJC} -o ${PROG_NAME}
 
 clean:
-				rm -f $(OBJS)
+				rm -r ${OBJC}
 
 fclean:			clean
-				rm -f $(PROG_NAME)
+				rm -r ${PROG_NAME}
 
 re:				fclean all
 
 .PHONY:			all clean fclean re
+
+
+
+
