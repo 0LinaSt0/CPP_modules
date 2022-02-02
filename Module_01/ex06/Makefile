@@ -6,7 +6,7 @@
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 14:08:41 by msalena           #+#    #+#              #
-#    Updated: 2022/02/02 18:41:09 by msalena          ###   ########.fr        #
+#    Updated: 2022/02/02 19:09:10 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS		=		main.cpp Karen.cpp
 
 OBJC		=		${SRCS:.cpp=.o}
 
-PROG_NAME	=		Karen
+PROG_NAME	=		karenFilter
 
 GCC			=		c++
 
