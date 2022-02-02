@@ -6,7 +6,7 @@
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 14:08:41 by msalena           #+#    #+#              #
-#    Updated: 2022/01/30 20:13:38 by msalena          ###   ########.fr        #
+#    Updated: 2022/02/02 16:49:11 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ FLAGS		=		-std=c++98 -Wall -Wextra -Werror
 
 
 
-all:			String
+all:			${PROG_NAME}
 
 %.o:			%.cpp
 				${GCC} ${FLAGS} -c $< -o $@

@@ -6,22 +6,21 @@
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 14:08:41 by msalena           #+#    #+#              #
-#    Updated: 2022/02/02 16:49:16 by msalena          ###   ########.fr        #
+#    Updated: 2022/02/02 16:47:40 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-HEAD		=		Zombie.hpp
+HEAD		=		Karen.hpp
 
-SRCS		=		Zombie.cpp randomChump.cpp newZombie.cpp main.cpp
+SRCS		=		main.cpp Karen.cpp
 
 OBJC		=		${SRCS:.cpp=.o}
 
-PROG_NAME	=		Zombie
+PROG_NAME	=		Karen
 
 GCC			=		c++
 
 FLAGS		=		-std=c++98 -Wall -Wextra -Werror
-
 
 
 all:			${PROG_NAME}
@@ -29,7 +28,7 @@ all:			${PROG_NAME}
 %.o:			%.cpp ${HEAD}
 				${GCC} ${FLAGS} -c $< -o $@
 
-$(PROG_NAME):	${SRCS} ${OBJC} ${HEAD} Makefile
+$(PROG_NAME):	${SRCS} ${HEAD} ${OBJC} Makefile
 				${GCC} ${FLAGS} ${OBJC} -o ${PROG_NAME}
 
 clean:

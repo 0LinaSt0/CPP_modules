@@ -6,7 +6,7 @@
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 14:08:41 by msalena           #+#    #+#              #
-#    Updated: 2022/01/30 20:49:19 by msalena          ###   ########.fr        #
+#    Updated: 2022/02/02 16:48:59 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,7 @@ GCC			=		c++
 FLAGS		=		-std=c++98 -Wall -Wextra -Werror
 
 
-
-all:			Replace
+all:			${PROG_NAME}
 
 %.o:			%.cpp
 				${GCC} ${FLAGS} -c $< -o $@

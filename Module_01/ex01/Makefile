@@ -6,7 +6,7 @@
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 14:08:41 by msalena           #+#    #+#              #
-#    Updated: 2022/01/30 15:16:47 by msalena          ###   ########.fr        #
+#    Updated: 2022/02/02 16:49:13 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ FLAGS		=		-std=c++98 -Wall -Wextra -Werror
 
 
 
-all:			Zombie
+all:			${PROG_NAME}
 
 %.o:			%.cpp ${HEAD}
 				${GCC} ${FLAGS} -c $< -o $@
