@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/01/30 14:08:41 by msalena           #+#    #+#              #
-#    Updated: 2022/02/03 16:37:38 by msalena          ###   ########.fr        #
+#    Created: 2022/02/03 16:31:30 by msalena           #+#    #+#              #
+#    Updated: 2022/02/03 16:37:10 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-HEAD		=		Karen.hpp
+HEAD		=		Fixed.hpp
 
-SRCS		=		main.cpp Karen.cpp
+SRCS		=		main.cpp Fixed.cpp
 
 OBJC		=		${SRCS:.cpp=.o}
 
-PROG_NAME	=		Karen
+PROG_NAME	=		Fixed
 
 GCC			=		c++
 
@@ -28,7 +28,7 @@ all:			${PROG_NAME}
 %.o:			%.cpp ${HEAD}
 				${GCC} ${FLAGS} -c $< -o $@
 
-$(PROG_NAME):	${HEAD} ${OBJC} Makefile
+$(PROG_NAME):	${SRCS} ${OBJC} ${HEAD} Makefile
 				${GCC} ${FLAGS} ${OBJC} -o ${PROG_NAME}
 
 clean:
@@ -40,7 +40,3 @@ fclean:			clean
 re:				fclean all
 
 .PHONY:			all clean fclean re
-
-
-
-
