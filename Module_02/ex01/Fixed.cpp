@@ -6,15 +6,15 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 13:25:44 by msalena           #+#    #+#             */
-/*   Updated: 2022/02/03 21:25:03 by msalena          ###   ########.fr       */
+/*   Updated: 2022/02/04 18:12:17 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 Fixed::Fixed( void ){
-	this->fpNumber = 0;
 	std::cout << "\033[32m" << "Default constructor called" << "\033[0m" << std::endl;
+	this->fpNumber = 0;
 }
 
 Fixed::Fixed( const Fixed& other){
@@ -26,14 +26,14 @@ Fixed::Fixed( const Fixed& other){
 //initialized to 8 like in exercise 00
 Fixed::Fixed( const int convert ){
 	std::cout << "Int constructor called" << std::endl;
-	this->fpNumber = (double)convert * takeDegree(2, Fixed::fractBitsNum);
+	this->fpNumber = convert * takeDegree(2, Fixed::fractBitsNum);
 }
 
 //converts it to the corresponding fixed-point value. The fractional bits value is
 //initialized to 8 like in exercise 00.
 Fixed::Fixed( const float convert){
 	std::cout << "Float constructor called" << std::endl;
-	this->fpNumber = (double)convert * takeDegree(2, Fixed::fractBitsNum);
+	this->fpNumber = roundf(convert * takeDegree(2, Fixed::fractBitsNum));
 }
 
 Fixed::~Fixed( void ){
@@ -56,7 +56,8 @@ void Fixed::setRawBits( int const raw ){
 
 //converts the fixed-point value to a floating-point value: revers
 float Fixed::toFloat( void ) const{
-	return (getRawBits() / takeDegree(2, Fixed::fractBitsNum));
+	float	n = (float)getRawBits() / takeDegree(2, Fixed::fractBitsNum);
+	return (n);
 }
 
 //converts the fixed-point value to an integer value: revers
@@ -68,13 +69,14 @@ int Fixed::toInt( void ) const{
 //FOLLOWING FUNCTIONS
 
 std::ostream&	operator<<( std::ostream& fig_znaet, const Fixed& one ){
-	float ret = ((double)one.getRawBits() / takeDegree(2, 8));
+	float ret = ((float)one.getRawBits() / (float)takeDegree(2, 8));
 
 	fig_znaet << ret;
 	return fig_znaet;
 }
 
 int		takeDegree( int num, int degree){
+
 	if (degree != 0){
 		return (num * takeDegree(num, (degree - 1)));
 	} else {
