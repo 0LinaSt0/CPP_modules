@@ -6,7 +6,7 @@
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 14:57:11 by msalena           #+#    #+#              #
-#    Updated: 2022/01/30 14:28:04 by msalena          ###   ########.fr        #
+#    Updated: 2022/02/05 20:41:03 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,17 +18,17 @@ OBJS		=		${SRCS:.cpp=.o}
 
 PROG_NAME	=		PhoneBook
 
-GCC			=		c++
+C			=		c++
 
 FLAGS		=		-std=c++98 -Wall -Wextra -Werror
 
 all:			$(PROG_NAME)
 
-%.o:			%.cpp $(HEAD)
-				$(GCC) $(FLAGS) -c $< -o $@
+%.o:			%.cpp $(HEAD) Makefile
+				$(C) $(FLAGS) -c $< -o $@
 
 $(PROG_NAME):	$(OBJS) $(HEAD) Makefile
-				$(GCC) $(FLAGS) $(OBJS) -o $(PROG_NAME)
+				$(C) $(FLAGS) $(OBJS) -o $(PROG_NAME)
 
 clean:
 				rm -f $(OBJS)

@@ -6,7 +6,7 @@
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/26 13:42:21 by msalena           #+#    #+#              #
-#    Updated: 2022/01/27 18:41:27 by msalena          ###   ########.fr        #
+#    Updated: 2022/02/05 20:41:08 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,18 +18,18 @@ OBJS		=		${SRCS:.cpp=.o}
 
 PROG_NAME	=		megaphone
 
-GCC			=		c++
+C			=		c++
 
 FLAGS		=		-std=c++98 -Wall -Wextra -Werror
 
 all:			$(PROG_NAME)
 
 
-%.o:			%.cpp $(HEAD)
-				$(GCC) $(FLAGS) -c $< -o $@
+%.o:			%.cpp $(HEAD) Makefile
+				$(C) $(FLAGS) -c $< -o $@
 
 $(PROG_NAME):	$(OBJS) $(HEAD) Makefile
-				$(GCC) $(FLAGS) $(OBJS) -o $(PROG_NAME)
+				$(C) $(FLAGS) $(OBJS) -o $(PROG_NAME)
 
 clean:
 				rm -f $(OBJS)

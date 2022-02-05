@@ -6,19 +6,19 @@ OBJC			=	$(SRCS:%.cpp=%.o)
 
 PROG_NAME		=	Account
 
-GCC				=	c++
+C				=	c++
 
 FLAGS			=	-std=c++98 -Wall -Wextra -Werror
 
 all:			$(PROG_NAME)
 
-%.o:			%.cpp $(HEAD)
-				$(GCC) $(FLAGS) -c $< -o $@
+%.o:			%.cpp $(HEAD) Makefile
+				$(C) $(FLAGS) -c $< -o $@
 
 $(PROG_NAME):	$(OBJC) $(HEAD) Makefile
-				$(GCC) $(FLAGS) $(OBJC) -o $(PROG_NAME)
+				$(C) $(FLAGS) $(OBJC) -o $(PROG_NAME)
 
-clean:		
+clean:
 				rm -r $(OBJC)
 
 fclean:			clean

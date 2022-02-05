@@ -6,7 +6,7 @@
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 14:08:41 by msalena           #+#    #+#              #
-#    Updated: 2022/02/02 16:49:13 by msalena          ###   ########.fr        #
+#    Updated: 2022/02/05 20:42:00 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,19 +18,17 @@ OBJC		=		${SRCS:.cpp=.o}
 
 PROG_NAME	=		Zombie
 
-GCC			=		c++
+C			=		c++
 
 FLAGS		=		-std=c++98 -Wall -Wextra -Werror
 
-
-
 all:			${PROG_NAME}
 
-%.o:			%.cpp ${HEAD}
-				${GCC} ${FLAGS} -c $< -o $@
+%.o:			%.cpp ${HEAD} Makefile
+				${C} ${FLAGS} -c $< -o $@
 
 $(PROG_NAME):	${SRCS} ${OBJC} ${HEAD} Makefile
-				${GCC} ${FLAGS} ${OBJC} -o ${PROG_NAME}
+				${C} ${FLAGS} ${OBJC} -o ${PROG_NAME}
 
 clean:
 				rm -r ${OBJC}

@@ -6,7 +6,7 @@
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 16:31:30 by msalena           #+#    #+#              #
-#    Updated: 2022/02/03 16:37:10 by msalena          ###   ########.fr        #
+#    Updated: 2022/02/05 20:43:13 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,18 +18,17 @@ OBJC		=		${SRCS:.cpp=.o}
 
 PROG_NAME	=		Fixed
 
-GCC			=		c++
+C			=		c++
 
 FLAGS		=		-std=c++98 -Wall -Wextra -Werror
 
-
 all:			${PROG_NAME}
 
-%.o:			%.cpp ${HEAD}
-				${GCC} ${FLAGS} -c $< -o $@
+%.o:			%.cpp ${HEAD} Makefile
+				${C} ${FLAGS} -c $< -o $@
 
 $(PROG_NAME):	${SRCS} ${OBJC} ${HEAD} Makefile
-				${GCC} ${FLAGS} ${OBJC} -o ${PROG_NAME}
+				${C} ${FLAGS} ${OBJC} -o ${PROG_NAME}
 
 clean:
 				rm -r ${OBJC}

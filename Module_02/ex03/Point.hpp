@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:20:59 by msalena           #+#    #+#             */
-/*   Updated: 2022/02/05 18:34:19 by msalena          ###   ########.fr       */
+/*   Updated: 2022/02/05 18:54:25 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ public:
 } ;
 
 bool bsp( Point const a, Point const b, Point const c, Point const point );
+
+#endif
 
 
 
