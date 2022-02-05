@@ -6,13 +6,13 @@
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 16:31:30 by msalena           #+#    #+#              #
-#    Updated: 2022/02/03 16:37:10 by msalena          ###   ########.fr        #
+#    Updated: 2022/02/05 17:23:46 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-HEAD		=		Fixed.hpp
+HEADS		=		Fixed.hpp Point.hpp
 
-SRCS		=		main.cpp Fixed.cpp
+SRCS		=		main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 OBJC		=		${SRCS:.cpp=.o}
 
@@ -25,10 +25,10 @@ FLAGS		=		-std=c++98 -Wall -Wextra -Werror
 
 all:			${PROG_NAME}
 
-%.o:			%.cpp ${HEAD}
+%.o:			%.cpp ${HEADS}
 				${GCC} ${FLAGS} -c $< -o $@
 
-$(PROG_NAME):	${SRCS} ${OBJC} ${HEAD} Makefile
+$(PROG_NAME):	${SRCS} ${OBJC} ${HEADS} Makefile
 				${GCC} ${FLAGS} ${OBJC} -o ${PROG_NAME}
 
 clean:

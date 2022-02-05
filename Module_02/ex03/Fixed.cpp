@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 13:25:44 by msalena           #+#    #+#             */
-/*   Updated: 2022/02/04 18:12:09 by msalena          ###   ########.fr       */
+/*   Updated: 2022/02/05 17:46:30 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,34 @@
 // Constructors & destructors
 
 Fixed::Fixed( void ){
-	std::cout << "\033[32m" << "Default constructor called" << "\033[0m" << std::endl;
+	// std::cout << "\033[32m" << "Default constructor called" << "\033[0m" << std::endl;
 	this->fpNumber = 0;
 }
 
 Fixed::Fixed( const Fixed& other){
-	std::cout << "\033[34m" << "Copy constructor called" << "\033[0m" << std::endl;
+	// std::cout << "\033[34m" << "Copy constructor called" << "\033[0m" << std::endl;
 	Fixed::operator=(other);
 }
 
 Fixed::Fixed( const int convert ){
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	this->fpNumber = convert * takeDegree(2, Fixed::fractBitsNum);
 }
 
 Fixed::Fixed( const float convert){
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	this->fpNumber = roundf(convert * takeDegree(2, Fixed::fractBitsNum));
 }
 
 Fixed::~Fixed( void ){
-	std::cout << "\033[31m" << "Destructor called" << "\033[0m" << std::endl;
+	// std::cout << "\033[31m" << "Destructor called" << "\033[0m" << std::endl;
 }
 ////////////////////////////////
 
 //Operators redefinition
 
 Fixed&	Fixed::operator=( const Fixed& other ){
-	std::cout << "\033[35m" << "Copy assignment operator called" << "\033[0m" << std::endl;
+	// std::cout << "\033[35m" << "Copy assignment operator called" << "\033[0m" << std::endl;
 	setRawBits(other.getRawBits());
 	return *this;
 }
