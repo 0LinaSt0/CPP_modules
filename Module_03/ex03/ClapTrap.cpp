@@ -3,49 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
+/*   By: polina <polina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 19:52:43 by msalena           #+#    #+#             */
-/*   Updated: 2022/02/06 20:43:04 by msalena          ###   ########.fr       */
+/*   Updated: 2022/02/08 16:28:54 by polina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void)
-{
-	this->name = "without name";
-	this->hitPoint = 100;
-	this->energyPoint = 100;
-	this->attackDamage = 30;
+ClapTrap::ClapTrap(void){
+	setAttrib("<without_name>");
+
 	std::cout << "Constructor: default" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string &name)
-{
-	this->name = name;
-	this->hitPoint = 100;
-	this->energyPoint = 100;
-	this->attackDamage = 30;
+ClapTrap::ClapTrap(const std::string &name){
+	setAttrib(name);
 	std::cout << "Constructor: "
-			  << "My name is " << this->name << ". I gave birth to ScavTrap"
+			  << "My name is " 
+			  << this->name 
+			  << ". I gave birth to ScavTrap"
 			  << std::endl
 			  << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap &other)
-{
+ClapTrap::ClapTrap(const ClapTrap &other){
 	ClapTrap::operator=(other);
-	std::cout << "Constructor: copy for " << this->name << std::endl;
+	std::cout << "Constructor: copy for " 
+			<< this->name 
+			<< std::endl;
 }
 
-ClapTrap::~ClapTrap(void)
-{
+ClapTrap::~ClapTrap(void){
 	std::cout << "Destructor: "
-			  << this->name << " done here. See you late" << std::endl;
+			  << this->name 
+			  << " done here. See you late" 
+			  << std::endl;
 }
 
-ClapTrap &ClapTrap::operator=(ClapTrap &other)
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
 	this->name = other.name;
 	this->hitPoint = other.hitPoint;
@@ -54,89 +51,74 @@ ClapTrap &ClapTrap::operator=(ClapTrap &other)
 	return *this;
 }
 
-void ClapTrap::attack(const std::string &target)
-{
-	if (this->energyPoint == 0)
-	{
+void ClapTrap::attack(const std::string &target){
+	if (this->energyPoint == 0){
 		std::cout << std::endl
 				  << "!Oh no, i cannot doing attack without energy :(!"
 				  << std::endl
 				  << std::endl;
 		return;
 	}
-	std::cout << "--> " << this->name << "\033[33m"
-			  << " attacks "
-			  << "\033[0m" << target << ", causing "
-			  << this->attackDamage << " points of damage!" << std::endl;
+	std::cout << "--> " << this->name 
+			<< "\033[33m" << " attacks " << "\033[0m" 
+			<< target 
+			<< ", causing "
+			<< this->attackDamage 
+			<< " points of damage!" 
+			<< std::endl;
 	this->energyPoint--;
-	std::cout << "	Ha-ha-ha, i attacked " << target << std::endl
-			  << "		Now, my healf: "
-			  << "\033[32m" << this->hitPoint << "\033[0m"
-			  << ", my energy: "
-			  << "\033[34m" << this->energyPoint << "\033[0m"
-			  << ", my damage: "
-			  << "\033[31m" << this->attackDamage << "\033[0m"
-			  << std::endl
-			  << std::endl;
+	std::cout << "	Ha-ha-ha, i attacked " << target << std::endl;
+	printInfo();
 }
 
-void ClapTrap::takeDamage(unsigned int amount)
-{
+void ClapTrap::takeDamage(unsigned int amount){
 	std::cout << "--> " << this->name
-			  << " take "
-			  << "\033[31m"
-			  << "damage "
-			  << "\033[0m" << std::endl;
+			<< " take "
+			<< "\033[31m" << "damage " << "\033[0m" 
+			<< std::endl;
 	attackDamage += amount;
-	std::cout << "	I'm feeling my new power " << std::endl
-			  << "		Now, my healf: "
-			  << "\033[32m" << this->hitPoint << "\033[0m"
-			  << ", my energy: "
-			  << "\033[34m" << this->energyPoint << "\033[0m"
-			  << ", my damage: "
-			  << "\033[31m" << this->attackDamage << "\033[0m"
-			  << std::endl
-			  << std::endl;
+	std::cout << "	I'm feeling my new power " << std::endl;
+	printInfo();
 }
 
-void ClapTrap::beRepaired(unsigned int amount)
-{
-	if (this->energyPoint == 0)
-	{
+void ClapTrap::beRepaired(unsigned int amount){
+	if (this->energyPoint == 0){
 		std::cout << std::endl
-				  << "!Oh no, i cannot doing repaired without energy :(!"
-				  << std::endl
-				  << std::endl;
+				<< "!Oh no, i cannot doing repaired without energy :(!"
+				<< std::endl << std::endl;
 		return;
 	}
 	std::cout << "--> " << this->name
-			  << " is "
-			  << "\033[32m"
-			  << "repairing "
-			  << "\033[0m" << std::endl;
+			<< " is "
+			<< "\033[32m" << "repairing " << "\033[0m" 
+			<< std::endl;
 	this->energyPoint--;
-	if (this->hitPoint < 100)
-	{
-		if ((this->hitPoint + amount) > 100)
-		{
-			this->hitPoint = 100;
-		}
-		else
-		{
+	if (this->hitPoint < 10){
+		if ((this->hitPoint + amount) > 10){
+			this->hitPoint = 10;
+		} else {
 			this->hitPoint += amount;
 		}
 		std::cout << "	I'm much better now " << std::endl;
-	}
-	else
-	{
+	} else {
 		std::cout << "	My healfy is full " << std::endl;
 	}
+	printInfo();
+}
+
+void ClapTrap::setAttrib(const std::string &name){
+	this->name = name;
+	this->hitPoint = 10;
+	this->energyPoint = 10;
+	this->attackDamage = 0;
+}
+
+void ClapTrap::printInfo(void){
 	std::cout << "		Now, my healf: "
-			  << "\033[32m" << this->hitPoint << "\033[0m"
-			  << ", my energy: "
-			  << "\033[34m" << this->energyPoint << "\033[0m"
-			  << ", my damage: "
-			  << "\033[31m" << this->attackDamage << "\033[0m"
-			  << std::endl
-			  << std::endl;
+			<< "\033[32m" << this->hitPoint << "\033[0m"
+			<< ", my energy: "
+			<< "\033[34m" << this->energyPoint << "\033[0m"
+			<< ", my damage: "
+			<< "\033[31m" << this->attackDamage << "\033[0m"
+			<< std::endl << std::endl;
 }
