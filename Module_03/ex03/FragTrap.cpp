@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: polina <polina@student.42.fr>              +#+  +:+       +#+        */
+/*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 20:10:07 by msalena           #+#    #+#             */
-/*   Updated: 2022/02/08 15:58:10 by polina           ###   ########.fr       */
+/*   Updated: 2022/02/09 11:22:06 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,80 +22,80 @@ FragTrap::FragTrap(const std::string& name){
 	setAttrib(name);
 
 	std::cout << "Constructor: "
-			<< "My name is " 
-			<< this->name 
+			<< "My name is "
+			<< this->name
 			<< ". I was born for killing"
 			<< std::endl << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other){
 	ClapTrap::operator=(other);
-	std::cout << "Constructor: copy for " 
-			<< this->name 
+	std::cout << "Constructor: copy for "
+			<< this->name
 			<< std::endl;
 }
 
 FragTrap::~FragTrap( void ){
 	std::cout << "Destructor: "
-			<< this->name 
-			<< " done here. See you late" 
+			<< this->name
+			<< " done here. See you late"
 			<< std::endl;
 }
 
 void	FragTrap::attack( const std::string& target ){
 	if (this->energyPoint == 0){
-		std::cout << std::endl 
-				<< "!Oh no, " 
+		std::cout << std::endl
+				<< "!Oh no, "
 				<< this->name
 				<< "cannot doing attack without energy :(!"
 				<< std::endl << std::endl;
 		return ;
 }
 	std::cout << "***>> " << this->name
-			<< "\033[33m" << " attacks " << "\033[0m" 
-			<< target 
+			<< "\033[33m" << " attacks " << "\033[0m"
+			<< target
 			<< ", causing "
-			<< this->attackDamage 
-			<< " points of damage!" 
+			<< this->attackDamage
+			<< " points of damage!"
 			<< std::endl;
 	this->energyPoint--;
-	std::cout << "	Ha-ha-ha, i attacked " 
+	std::cout << "	Ha-ha-ha, i attacked "
 			<< target <<std::endl
-			<< "		Now, my healf: " 
+			<< "		Now, my healf: "
 			<< "\033[32m" << this->hitPoint << "\033[0m"
-			<< ", my energy: " 
+			<< ", my energy: "
 			<< "\033[34m" << this->energyPoint << "\033[0m"
-			<< ", my damage: " 
+			<< ", my damage: "
 			<< "\033[31m" << this->attackDamage << "\033[0m"
 			<< std::endl;
 }
 
 void	FragTrap::takeDamage(unsigned int amount){
 	std::cout << "***>> " << this->name
-			<< " take " 
-			<< "\033[31m" << "damage " << "\033[0m" 
+			<< " take "
+			<< "\033[31m" << "damage " << "\033[0m"
 			<< std::endl;
 	attackDamage += amount;
 	std::cout << "	I'm feeling my new power " <<std::endl
-			<< "		Now, my healf: " 
+			<< "		Now, my healf: "
 			<< "\033[32m" << this->hitPoint << "\033[0m"
-			<< ", my energy: " 
+			<< ", my energy: "
 			<< "\033[34m" << this->energyPoint << "\033[0m"
-			<< ", my damage: " 
+			<< ", my damage: "
 			<< "\033[31m" << this->attackDamage << "\033[0m"
 			<< std::endl;
 }
 
 void	FragTrap::beRepaired(unsigned int amount){
 	if (this->energyPoint == 0){
-		std::cout << std::endl << "!Oh no, " 
+		std::cout << std::endl << "!Oh no, "
 				<< this->name
 				<< "cannot doing repaired without energy :(!"
 				<< std::endl << std::endl;
 		return ;
 	}
 	std::cout << "***>> " << this->name
-			<< " is " 
+			<< " is "
 			<< "\033[32m" << "repairing " << "\033[0m"
 			<< std::endl;
 	this->energyPoint--;
@@ -109,19 +109,19 @@ void	FragTrap::beRepaired(unsigned int amount){
 	} else {
 		std::cout << "	My healfy is full " <<std::endl;
 	}
-	std::cout << "		Now, my healf: " 
+	std::cout << "		Now, my healf: "
 			<< "\033[32m" << this->hitPoint << "\033[0m"
-			<< ", my energy: " 
+			<< ", my energy: "
 			<< "\033[34m" << this->energyPoint << "\033[0m"
-			<< ", my damage: " 
+			<< ", my damage: "
 			<< "\033[31m" << this->attackDamage << "\033[0m"
 			<< std::endl;
 }
 
 void	FragTrap::highFivesGuys(void){
-	std::cout << "***> Guys, high five to " 
+	std::cout << "***> Guys, high five to "
 			<< this->name
-			<< ". It's me." 
+			<< ". It's me."
 			<< std::endl << std::endl;
 }
 
