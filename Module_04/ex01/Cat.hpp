@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 11:09:15 by msalena           #+#    #+#             */
-/*   Updated: 2022/02/09 13:58:52 by msalena          ###   ########.fr       */
+/*   Created: 2022/02/09 11:09:39 by msalena           #+#    #+#             */
+/*   Updated: 2022/02/09 14:10:11 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#include <iostream>
-#include <string>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class	Animal{
+class	Cat : public Animal{
 private:
-
+	Brain*	CatBrain;
 protected:
 	std::string	type;
 
-	void		setType( const std::string& type );
+	void	setType( const std::string& type);
 public:
-	Animal( void );
-	Animal( const std::string& type );
-	Animal( const Animal& other );
-	virtual ~Animal( void );
+	Cat( void );
+	Cat( const std::string& type, const std::string& a_type );
+	Cat( const Cat& other );
+	~Cat( void );
 
-	Animal&	operator=( const Animal& othrer );
+	Cat&	operator=( const Cat& other );
 
-	virtual std::string	getType( void ) const;
-	virtual void		makeSound( void ) const;
-
+	std::string	getType( void ) const;
+	void	makeSound( void ) const;
 } ;
 
 #endif

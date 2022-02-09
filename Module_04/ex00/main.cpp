@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 10:56:41 by msalena           #+#    #+#             */
-/*   Updated: 2022/02/09 13:08:09 by msalena          ###   ########.fr       */
+/*   Updated: 2022/02/09 14:01:20 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,15 @@ int main()
 	meta->makeSound();
 	WrongMeta->makeSound();
 
-	// ~~~~~~~~~~~~~~~~ DON'T HAVE IDEA HOW TO FREE IT !!!!!
-	// delete meta;
-	// delete j;
-	// delete i;
+	std::cout << std::endl << "\t****** Animal will deleted now ******" << std::endl;
+	delete meta;
+	std::cout << std::endl << "\t****** Dog will deleted now ******" << std::endl;
+	delete j;
+	std::cout << std::endl << "\t****** Cat will deleted now ******" << std::endl;
+	delete i;
+	std::cout << std::endl << "\t****** WrongAnimal will deleted now ******" << std::endl;
+	delete WrongMeta;
+	std::cout << std::endl << "\t****** WrongCat will deleted now ******" << std::endl;
+	delete WrongI;
 	return 0;
 }

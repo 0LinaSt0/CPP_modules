@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 11:09:15 by msalena           #+#    #+#             */
-/*   Updated: 2022/02/09 13:58:52 by msalena          ###   ########.fr       */
+/*   Updated: 2022/02/09 12:45:33 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	Animal( void );
 	Animal( const std::string& type );
 	Animal( const Animal& other );
-	virtual ~Animal( void );
+	~Animal( void );
 
 	Animal&	operator=( const Animal& othrer );
 
