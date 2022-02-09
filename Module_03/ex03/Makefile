@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: polina <polina@student.42.fr>              +#+  +:+       +#+         #
+#    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/05 20:31:57 by msalena           #+#    #+#              #
-#    Updated: 2022/02/08 16:29:43 by polina           ###   ########.fr        #
+#    Updated: 2022/02/09 10:04:21 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 HEAD		=		ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 
-SRCS		=		ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp DiamondTrap.cpp
+SRCS		=		ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp main.cpp
 
 OBJS		=		${SRCS:.cpp=.o}
 
