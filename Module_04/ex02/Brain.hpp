@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 11:09:15 by msalena           #+#    #+#             */
-/*   Updated: 2022/02/09 12:45:33 by msalena          ###   ########.fr       */
+/*   Created: 2022/02/09 13:28:27 by msalena           #+#    #+#             */
+/*   Updated: 2022/02/09 13:49:55 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef BRAING_HPP
+#define BRAING_HPP
 
 #include <iostream>
 #include <string>
 
-class	Animal{
+class	Brain{
 private:
-
+	void	setIdeas( const std::string& idea );
 protected:
-	std::string	type;
-
-	void		setType( const std::string& type );
+	std::string	ideas[100];
 public:
-	Animal( void );
-	Animal( const std::string& type );
-	Animal( const Animal& other );
-	virtual ~Animal( void );
+	Brain( void );
+	Brain( const std::string& idea );
+	Brain( const Brain& other );
+	~Brain( void );
 
-	Animal&	operator=( const Animal& othrer );
-
-	virtual std::string	getType( void ) const;
-	virtual void	makeSound( void ) const;
-	virtual void	takeIdeas( void ) const;
+	Brain&	operator=( const Brain& other );
+	std::string* getIdeas( void );
 } ;
 
 #endif

@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 11:09:15 by msalena           #+#    #+#             */
-/*   Updated: 2022/02/09 12:45:33 by msalena          ###   ########.fr       */
+/*   Created: 2022/02/09 12:31:24 by msalena           #+#    #+#             */
+/*   Updated: 2022/02/09 14:07:18 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#include <iostream>
-#include <string>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class	Animal{
+class	Dog : public Animal{
 private:
-
+	Brain*	DogBrain;
 protected:
 	std::string	type;
 
-	void		setType( const std::string& type );
+	void	setType( const std::string& type);
 public:
-	Animal( void );
-	Animal( const std::string& type );
-	Animal( const Animal& other );
-	virtual ~Animal( void );
+	Dog( void );
+	Dog( const std::string& type, const std::string& a_type );
+	Dog( const Dog& other );
+	~Dog( void );
 
-	Animal&	operator=( const Animal& othrer );
+	Dog&	operator=( const Dog& other );
 
-	virtual std::string	getType( void ) const;
-	virtual void	makeSound( void ) const;
-	virtual void	takeIdeas( void ) const;
+	std::string	getType( void ) const;
+	void	makeSound( void ) const;
+	void	takeIdeas( void ) const;
 } ;
 
 #endif
