@@ -69,3 +69,17 @@ void	Cat::makeSound(void) const{
 			<< "\U0001F408" << " " << this->type
 			<< std::endl;
 }
+
+void	Cat::takeIdeas(void) const{
+	std::cout << "-->I'm "
+			<< this->type
+			<< " and this is my ideas"
+			<< std::endl;
+	for (int i=0; i < 100; i++){
+		std::cout << "	"
+				<< (CatBrain->getIdeas())[i]
+				<< " ";
+	}
+	// std::cout << (CatBrain->getIdeas())[0];
+	std::cout << std::endl << std::endl;
+}

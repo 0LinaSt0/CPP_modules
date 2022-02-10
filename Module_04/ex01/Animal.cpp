@@ -65,3 +65,5 @@ void	Animal::makeSound(void) const{
 			<< "\U0001F333" << " " << this->type
 			<< std::endl;
 }
+
+void	Animal::takeIdeas(void) const{}

@@ -33,6 +33,7 @@ public:
 
 	std::string	getType( void ) const;
 	void	makeSound( void ) const;
+	void	takeIdeas( void ) const;
 } ;
 
 #endif

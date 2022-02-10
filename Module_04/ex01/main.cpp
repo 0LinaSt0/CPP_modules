@@ -15,9 +15,6 @@
 #include "Dog.hpp"
 
 int	main( void ){
-	// const Animal* i = new Cat();
-	// const Animal* j = new Dog();
-
 	const Animal*	arr[20];
 
 	for (int i=0; i < 20; i++){
@@ -25,9 +22,17 @@ int	main( void ){
 			arr[i] = new Cat();
 		else
 			arr[i] = new Dog();
+		arr[i]->makeSound();
 	}
-	// delete j;//should not create a leak
-	// delete i;
-	// ...
+	arr[3]->takeIdeas();
+	arr[19]->takeIdeas();
+
+	for (int i=0; i < 20; i++){
+		std::cout << "\t~~~~~~~~~ "
+				<< i
+				<< " ~~~~~~~~~"
+				<<std::endl;
+		delete arr[i];
+	}
 	return 0;
 }

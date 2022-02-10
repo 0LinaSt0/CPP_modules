@@ -28,6 +28,7 @@ public:
 	~Brain( void );
 
 	Brain&	operator=( const Brain& other );
+	std::string* getIdeas( void );
 } ;
 
 #endif
