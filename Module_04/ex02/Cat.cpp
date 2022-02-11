@@ -39,11 +39,7 @@ Cat::Cat(const Cat& other) : Animal (other){
 
 Cat::~Cat(void){
 	delete this->CatBrain;
-	std::cout << "Destructor: "
-			<< " " << "\U0001F408" << " "
-			<< this->type
-			<< " done here"
-			<< std::endl;
+
 }
 
 Cat&	Cat::operator=(const Cat& other){
