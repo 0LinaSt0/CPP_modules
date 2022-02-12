@@ -6,13 +6,13 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 18:20:06 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/30 19:56:35 by msalena          ###   ########.fr       */
+/*   Updated: 2022/02/12 18:43:23 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB( const std::string& came_name ) : name ( came_name ), w ( NULL ){
+HumanB::HumanB( const std::string& came_name ) : name ( came_name ), w ( nullptr ){
 		std::cout << "-->My name is " << this->name << " and i was born" << std::endl;
 }
 HumanB::~HumanB( void ){

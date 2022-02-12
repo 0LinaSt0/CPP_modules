@@ -6,40 +6,47 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 13:01:36 by msalena           #+#    #+#             */
-/*   Updated: 2022/02/12 14:33:26 by msalena          ###   ########.fr       */
+/*   Updated: 2022/02/12 18:32:45 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice(void) : type("ice"){
-	std::cout << "Constructor: default for "
-		<<this->type
-		<< std::endl;
+Ice::Ice(void) : AMateria("ICE"){
+	std::cout << "\033[32m"
+			<< "Constructor:"
+			<< "\033[0m"
+			<< " default for "
+			<<this->type
+			<< std::endl;
 }
 
-Ice::Ice(std::string const& type) : type(type){
-	std::cout << "Constructor: value assignment for "
-		<< this->type
-		<< std::endl;
+Ice::Ice(std::string const& type) : AMateria(type){
+	std::cout << "\033[32m"
+			<< "Constructor:"
+			<< "\033[0m"
+			<< " value assignment for "
+			<< this->type
+			<< std::endl;
 }
 
 Ice::Ice(AMateria const& other){
 	AMateria::operator=(other);
-	std::cout << "Constructor: copy for "
-		<< this->type
-		<< std::endl;
+	std::cout << "\033[32m"
+			<< "Constructor:"
+			<< "\033[0m"
+			<< " copy for "
+			<< this->type
+			<< std::endl;
 }
 
 Ice::~Ice(void){
-	std::cout << "Destructor: "
-		<< this->type
-		<< " done here"
-		<< std::endl;
-}
-
-std::string const& Ice::getSpecialType(void) const{
-	return type;
+	std::cout << "\033[31m"
+			<< "Destructor: "
+			<< "\033[0m"
+			<< this->type
+			<< " done here"
+			<< std::endl;
 }
 
 AMateria* Ice::clone( void ) const{

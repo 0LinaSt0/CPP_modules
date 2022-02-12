@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:47:43 by marvin            #+#    #+#             */
-/*   Updated: 2022/02/12 12:22:30 by msalena          ###   ########.fr       */
+/*   Updated: 2022/02/12 18:36:24 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,25 @@
 
 #include "AMateria.hpp"
 
-class IMateriaSource{
-private:
-	std::string	name;
-	size_t		fullFl[4];
-protected:
-	AMateria*	type[4];
-public:
-	IMateriaSource( void );
-	IMateriaSource( std::string const& name );
-	IMateriaSource( IMateriaSource const& other );
-	virtual ~IMateriaSource( void );
-
-	IMateriaSource&	operator=( IMateriaSource const& other );
-
-	virtual void learnMateria( AMateria* other ) = 0;
-	virtual AMateria* createMateria( std::string const & param ) = 0;
+class IMateriaSource
+{
+	public:
+	virtual ~IMateriaSource() {}
+	virtual void learnMateria(AMateria*) = 0;
+	virtual AMateria* createMateria(std::string const & type) = 0;
 };
 
 class	MateriaSource : public IMateriaSource{
 private:
 	std::string	name;
-	size_t		fullFl[4];
 
-	void	setFlArr( void );
+	void	setType( void );
 protected:
 	AMateria*	type[4];
 public:
 	MateriaSource( void );
-	MateriaSource( std::string const& type );
-	MateriaSource( IMateriaSource const& other );
+	MateriaSource( std::string const& name );
+	MateriaSource( MateriaSource const& other );
 	~MateriaSource( void );
 
 	void learnMateria( AMateria* other);

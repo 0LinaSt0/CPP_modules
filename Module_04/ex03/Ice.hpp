@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:19:01 by marvin            #+#    #+#             */
-/*   Updated: 2022/02/12 14:35:17 by msalena          ###   ########.fr       */
+/*   Updated: 2022/02/12 18:07:43 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class	Ice : virtual public AMateria{
 private:
-	std::string	type;
+
 protected:
 
 public:
@@ -26,8 +26,7 @@ public:
 	Ice( AMateria const& other );
 	~Ice( void );
 
-	AMateria* clone( void ) const;  // should be uncorrect
-	std::string const& getSpecialType( void ) const;
+	AMateria* clone( void ) const; 
 	void use( ICharacter& target );
 } ;
 

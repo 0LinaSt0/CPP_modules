@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:21:59 by marvin            #+#    #+#             */
-/*   Updated: 2022/02/12 14:31:57 by msalena          ###   ########.fr       */
+/*   Updated: 2022/02/12 18:59:05 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ private:
 protected:
 	std::string	type;
 public:
+	static AMateria* needDelet;
+
 	AMateria( void );
 	AMateria( std::string const& type );
 	AMateria( AMateria const& other );
@@ -32,10 +34,10 @@ public:
 
 	AMateria&	operator=( AMateria const& other );
 
-	std::string const& getType( void ) const; //Returns the materia type
-	virtual std::string const& getSpecialType( void ) const = 0;
+	std::string const& getType( void ) const;
 	virtual AMateria* clone( void ) const = 0;
 	virtual void use( ICharacter& target );
+	static void	safeElem( AMateria* input );
 } ;
 
 #endif
