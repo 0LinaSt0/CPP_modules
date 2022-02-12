@@ -1,54 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/11 14:06:40 by marvin            #+#    #+#             */
-/*   Updated: 2022/02/12 14:13:04 by msalena          ###   ########.fr       */
+/*   Created: 2022/02/12 13:01:36 by msalena           #+#    #+#             */
+/*   Updated: 2022/02/12 14:33:26 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Ice.hpp"
 
-AMateria::AMateria(void) : type("default_materia"){
+Ice::Ice(void) : type("ice"){
 	std::cout << "Constructor: default for "
 		<<this->type
 		<< std::endl;
 }
 
-AMateria::AMateria(std::string const& type) : type(type){
+Ice::Ice(std::string const& type) : type(type){
 	std::cout << "Constructor: value assignment for "
 		<< this->type
 		<< std::endl;
 }
 
-AMateria::AMateria(AMateria const& other){
+Ice::Ice(AMateria const& other){
 	AMateria::operator=(other);
 	std::cout << "Constructor: copy for "
 		<< this->type
 		<< std::endl;
 }
 
-AMateria::~AMateria(void){
+Ice::~Ice(void){
 	std::cout << "Destructor: "
 		<< this->type
 		<< " done here"
 		<< std::endl;
 }
 
-AMateria&	AMateria::operator=(AMateria const& other){
-	type = other.type;
-	return *this;
-}
-
-std::string const& AMateria::getType(void) const{
+std::string const& Ice::getSpecialType(void) const{
 	return type;
 }
 
-void AMateria::use(ICharacter& target){
-	std::cout << "I'm basic materia for"
+AMateria* Ice::clone( void ) const{
+	AMateria	*_new = new Ice();
+
+	*_new = *this;
+	return _new;
+}
+
+void Ice::use(ICharacter& target){
+	std::cout << "* shoots an ice bolt at "
 			<< target.getName()
+			<< " *"
 			<< std::endl << std::endl;
 }

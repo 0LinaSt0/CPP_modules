@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 15:10:40 by marvin            #+#    #+#             */
-/*   Updated: 2022/02/11 15:10:40 by marvin           ###   ########.fr       */
+/*   Updated: 2022/02/12 14:35:21 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ public:
 	Cure( AMateria const& other );
 	~Cure( void );
 
-	std::string const& getType( void ) const;
-	AMateria* clone( void ) const;
+	AMateria* clone( void ) const; // should be uncorrect
+	std::string const& getSpecialType( void ) const;
 	void use( ICharacter& target );
 } ;
 

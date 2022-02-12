@@ -1,54 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/11 14:06:40 by marvin            #+#    #+#             */
-/*   Updated: 2022/02/12 14:13:04 by msalena          ###   ########.fr       */
+/*   Created: 2022/02/12 12:46:25 by msalena           #+#    #+#             */
+/*   Updated: 2022/02/12 14:32:53 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Cure.hpp"
 
-AMateria::AMateria(void) : type("default_materia"){
+Cure::Cure(void) : type("cure"){
 	std::cout << "Constructor: default for "
 		<<this->type
 		<< std::endl;
 }
 
-AMateria::AMateria(std::string const& type) : type(type){
+Cure::Cure(std::string const& type) : type(type){
 	std::cout << "Constructor: value assignment for "
 		<< this->type
 		<< std::endl;
 }
 
-AMateria::AMateria(AMateria const& other){
+Cure::Cure(AMateria const& other){
 	AMateria::operator=(other);
 	std::cout << "Constructor: copy for "
 		<< this->type
 		<< std::endl;
 }
 
-AMateria::~AMateria(void){
+Cure::~Cure(void){
 	std::cout << "Destructor: "
 		<< this->type
 		<< " done here"
 		<< std::endl;
 }
 
-AMateria&	AMateria::operator=(AMateria const& other){
-	type = other.type;
-	return *this;
-}
+// std::string const& Cure::getType(void) const{
+// 	return type;
+// }
 
-std::string const& AMateria::getType(void) const{
+std::string const& Cure::getSpecialType( void ) const{
 	return type;
 }
 
-void AMateria::use(ICharacter& target){
-	std::cout << "I'm basic materia for"
+AMateria* Cure::clone( void ) const{
+	AMateria	*_new = new Cure();
+
+	*_new = *this;
+	return _new;
+}
+
+void Cure::use(ICharacter& target){
+	std::cout << "* heals "
 			<< target.getName()
+			<< "’s wounds *"
 			<< std::endl << std::endl;
 }

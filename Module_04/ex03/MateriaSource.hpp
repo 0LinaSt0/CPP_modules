@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 14:47:43 by marvin            #+#    #+#             */
-/*   Updated: 2022/02/11 14:47:43 by marvin           ###   ########.fr       */
+/*   Updated: 2022/02/12 12:22:30 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ private:
 	std::string	name;
 	size_t		fullFl[4];
 protected:
-	AMateria const*	type[4];
+	AMateria*	type[4];
 public:
 	IMateriaSource( void );
 	IMateriaSource( std::string const& name );
@@ -40,7 +40,7 @@ private:
 
 	void	setFlArr( void );
 protected:
-	AMateria const*	type[4];
+	AMateria*	type[4];
 public:
 	MateriaSource( void );
 	MateriaSource( std::string const& type );
