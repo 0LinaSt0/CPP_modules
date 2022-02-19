@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 17:56:33 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/30 19:21:41 by msalena          ###   ########.fr       */
+/*   Updated: 2022/02/19 18:24:18 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ int main( void )
 		club.setType("some other type of club");
 		jim.attack();
 	}
-return 0;
+	return 0;
 }

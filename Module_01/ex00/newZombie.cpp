@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 14:25:26 by msalena           #+#    #+#             */
-/*   Updated: 2022/02/12 18:43:23 by msalena          ###   ########.fr       */
+/*   Updated: 2022/02/19 17:55:57 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ Zombie* newZombie( std::string name ){
 	if (!_new)
 		return nullptr;
 
-	_new->announce();//maybe don't need this announce
+	_new->announce();
 	return(_new);
 }

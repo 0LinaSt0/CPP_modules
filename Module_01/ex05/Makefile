@@ -6,7 +6,7 @@
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 14:08:41 by msalena           #+#    #+#              #
-#    Updated: 2022/02/05 20:42:50 by msalena          ###   ########.fr        #
+#    Updated: 2022/02/19 18:54:41 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ FLAGS		=		-std=c++98 -Wall -Wextra -Werror
 all:			${PROG_NAME}
 
 %.o:			%.cpp ${HEAD} Makefile
-				${GCC} ${FLAGS} -c $< -o $@
+				${C} ${FLAGS} -c $< -o $@
 
 $(PROG_NAME):	${HEAD} ${OBJC} Makefile
 				${C} ${FLAGS} ${OBJC} -o ${PROG_NAME}

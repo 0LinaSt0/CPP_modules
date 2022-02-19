@@ -6,13 +6,13 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 14:24:42 by msalena           #+#    #+#             */
-/*   Updated: 2022/01/30 15:07:13 by msalena          ###   ########.fr       */
+/*   Updated: 2022/02/19 17:55:10 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
- size_t Zombie::color_fl = 1;
+size_t Zombie::color_fl = 1;
 
 Zombie::Zombie( void ){
 
