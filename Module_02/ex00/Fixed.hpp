@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 12:58:33 by msalena           #+#    #+#             */
-/*   Updated: 2022/02/03 16:19:07 by msalena          ###   ########.fr       */
+/*   Updated: 2022/03/20 18:12:27 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	Fixed( const Fixed& other );//copy
 	~Fixed ( void );
 
-	Fixed& operator=( const Fixed& other);
+	Fixed& operator=( const Fixed& other );
 
 	int getRawBits( void ) const;
 	void setRawBits( int const raw );
