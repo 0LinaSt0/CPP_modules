@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:58:27 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/26 16:33:27 by msalena          ###   ########.fr       */
+/*   Updated: 2022/03/26 20:36:52 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,22 @@
 
 #include <string>
 #include <iostream>
+#include "Form.hpp"
+
+#define HIGHT "THE HIGHTEST GRADE IS 1"
+#define LOW "THE LOWEST GRADE IS 150"
+
+class	Form;
 
 class	Bureaucrat{
 private:
-	std::string			hight;
-	std::string			low;
 	const std::string	name;
 	int					grade;
-	
 public:
+	class		GradeTooHighException;
+	class		GradeTooLowException;
+	std::string str;
+	
 	Bureaucrat ( void );
 	Bureaucrat ( const std::string& name, int grade );
 	Bureaucrat ( const Bureaucrat& other );
@@ -33,20 +40,21 @@ public:
 
 	std::string	getName ( void ) const;
 	int			getGrade ( void ) const;
+
 	void		increment ( void );
 	void		decrement ( void );
-	class		GradeTooHighException;
-	class		GradeTooLowException;
+	void		signForm ( const std::string& nameForm,
+								const std::string& reason ) const;
 } ;
 
 class	Bureaucrat::GradeTooHighException : public std::exception{
 public:
-	GradeTooHighException ( std::string& error );
+	GradeTooHighException ( const std::string& error );
 } ;
 
 class	Bureaucrat::GradeTooLowException : public std::exception{
 public:
-	GradeTooLowException ( std::string& error );
+	GradeTooLowException ( const std::string& error );
 } ;
 
 #endif

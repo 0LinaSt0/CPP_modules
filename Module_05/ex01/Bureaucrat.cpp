@@ -6,35 +6,31 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 18:39:05 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/26 20:49:20 by msalena          ###   ########.fr       */
+/*   Updated: 2022/03/26 20:48:59 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::GradeTooHighException::GradeTooHighException(std::string& error){
+Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string& error){
 	std::cout << error << std::endl;
 }
 
-Bureaucrat::GradeTooLowException::GradeTooLowException(std::string& error){
+Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string& error){
 	std::cout << error << std::endl;
 }
 
 Bureaucrat::Bureaucrat(void) : name ("default"){
 	std::cout << "Constructor: default for Bureaucrat" << std::endl;
-	hight = "THE HIGHTEST GRADE IS 1";
-	low = "THE LOWEST GRADE IS 150";
 	grade = 1;
 }
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) 
-										: name (name){
-	hight = "THE HIGHTEST GRADE IS 1";
-	low = "THE LOWEST GRADE IS 150";	
+										: name (name){	
 	if (grade < 1)
-		throw GradeTooHighException(hight);
+		throw GradeTooHighException(HIGHT);
 	if (grade > 150)
-		throw GradeTooLowException(low);
+		throw GradeTooLowException(LOW);
 	this->grade = grade;
 	std::cout << "Constructor: value assignment for " 
 			<< name << std::endl;
@@ -42,8 +38,6 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) 
 								: name (other.getName()){
-	hight = "THE HIGHTEST GRADE IS 1";
-	low = "THE LOWEST GRADE IS 150";
 	std::cout << "Constructor: copy for " 
 			<< name << std::endl;
 	Bureaucrat::operator=(other);
@@ -60,6 +54,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& other){
 	return (*this);
 }
 
+
 std::string	Bureaucrat::getName(void) const{
 	return (this->name);
 }
@@ -68,14 +63,49 @@ int	Bureaucrat::getGrade(void) const{
 	return (this->grade);
 }
 
+
+
+
 void	Bureaucrat::increment(void){
-	if ((this->grade - 1) < 1)
-		throw GradeTooHighException(this->hight);
+	if ((this->grade - 1) < 1){
+		std::cout << "--->" 
+				<< "\U0000274C" << " "
+				<< name
+				<< " HAVE ALREADY "
+				<< grade
+				<< " GRADE. ";
+		throw GradeTooHighException(HIGHT);
+	}
 	this->grade--;
 }
 
 void	Bureaucrat::decrement(void){
-	if ((this->grade + 1) > 150)
-		throw GradeTooLowException(this->low);
+	if ((this->grade + 1) > 150){
+		std::cout << "--->" 
+				<< "\U0000274C" << " "
+				<< name
+				<< " HAVE ALREADY "
+				<< grade
+				<< " GRADE. ";
+		throw GradeTooLowException(LOW);
+	}
 	this->grade++;
+}
+
+void	Bureaucrat::signForm(const std::string& nameForm,
+						const std::string& reason) const{
+	if (!reason.compare("NON")){
+		std::cout << name 
+				<< " signed "
+				<< nameForm
+				<< std::endl;
+	}
+	else{
+		std::cout << name
+				<< " couldn't sign "
+				<< nameForm
+				<< " because "
+				<< reason
+				<<std::endl;
+	}
 }
