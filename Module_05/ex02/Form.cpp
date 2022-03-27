@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:54:02 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/27 17:35:25 by msalena          ###   ########.fr       */
+/*   Updated: 2022/03/27 19:58:49 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ Form::Form(const std::string name, const int gradeExecute,
 		throw Bureaucrat::GradeTooHighException(HIGHT);
 	if (gradeSign > 150)
 		throw Bureaucrat::GradeTooLowException(LOW);
-	std::cout << "Constructor: value assignment for " 
-			<< name 
+	std::cout << "Constructor: value assignment for Form" 
 			<< std::endl;
 }
 
@@ -36,14 +35,12 @@ Form::Form(const Form& other) : name (other.getName()),
 			gradeSign (other.getGradeSign()), 
 			gradeExecute (other.getGradeExecute()){
 	indicSign = other.getIndicSign();
-	std::cout << "Constructor: copy for " 
-			<< name 
+	std::cout << "Constructor: copy for Form"
 			<< std::endl;
 }
 
 Form::~Form(void){
-	std::cout << "Destructor: "
-			<< name << " done here" 
+	std::cout << "Destructor: Form done here" 
 			<< std::endl;
 }
 
@@ -78,9 +75,21 @@ void	Form::beSigned(const Bureaucrat& bur){
 		bur.signForm(name, "low grade");
 		throw Bureaucrat::GradeTooLowException(LOW);
 	}
-	// exit (0);
 	std::cout << "--->" 
 				<< "\U00002705" << " ";
 	bur.signForm(name, "NON");
 	indicSign = 1;
+}
+
+void	Form::beExecute(const Bureaucrat& bur) const {
+	if (bur.getGrade() > gradeExecute){
+		std::cout << "--->" 
+				<< "\U0000274C" << " ";
+		if (bur.getGrade() > gradeExecute)
+			bur.executeForm(name, "low grade");
+		throw Bureaucrat::GradeTooLowException("NON");
+	}
+	std::cout << "--->" 
+				<< "\U00002705" << " ";
+	bur.executeForm(name, "NON");
 }
