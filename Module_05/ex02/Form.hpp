@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:15:58 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/28 10:38:31 by msalena          ###   ########.fr       */
+/*   Updated: 2022/03/28 17:07:02 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	Form ( const std::string name, const int gradeSign,
 						 const int gradeExexute);
 	Form ( const Form& other );
-	~Form ( void );
+	virtual ~Form ( void );
 
 	std::string	getName ( void ) const;
 	bool		getIndicSign ( void ) const;

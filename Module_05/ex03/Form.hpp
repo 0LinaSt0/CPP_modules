@@ -6,15 +6,13 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:15:58 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/28 17:06:40 by msalena          ###   ########.fr       */
+/*   Updated: 2022/03/28 17:05:48 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include <string>
-#include <iostream>
 #include "Bureaucrat.hpp"
 
 class	Bureaucrat;
@@ -27,8 +25,8 @@ private:
 	const int			gradeExecute;
 public:
 	Form ( void );
-	Form ( const std::string name, const int gradeExexute,
-							const int gradeSign );
+	Form ( const std::string name, const int gradeSign,
+						 const int gradeExexute);
 	Form ( const Form& other );
 	virtual ~Form ( void );
 
@@ -38,6 +36,8 @@ public:
 	int			getGradeExecute ( void ) const;
 	
 	void		beSigned ( const Bureaucrat& bur );
+	void		beExecute ( const Bureaucrat&  bur ) const;
+	virtual void	execute(Bureaucrat const & executor) const = 0;
 } ;
 
 #endif
