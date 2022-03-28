@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 15:02:05 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/27 19:50:04 by msalena          ###   ########.fr       */
+/*   Updated: 2022/03/28 13:54:11 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,16 @@
 class	ShrubberyCreationForm : public Form{
 private:
 	const std::string	target;
-	static std::string*	tree; //HOW_FREE_THAT???
-public:
-	
+	static std::string*	tree;
+public:	
 	ShrubberyCreationForm ( void );
 	ShrubberyCreationForm ( const std::string& target );
-	// ShrubberyCreationForm ( const ShrubberyCreationForm& other ); // HOW_TO_DO_THE_COPY_OF_targetFile
+	ShrubberyCreationForm ( const ShrubberyCreationForm& other );
 	~ShrubberyCreationForm ( void );
 	
-	const std::string	getTarget() const;
+	const std::string	getTarget ( void ) const;
 
-	void	execute( Bureaucrat const& executor ) const;
+	void	execute ( Bureaucrat const& executor ) const;
 	int		openTargetFile( void ) const;
 
 	static std::string*	createShrubberyArray( void );

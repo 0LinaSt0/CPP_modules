@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 16:39:36 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/27 19:52:13 by msalena          ###   ########.fr       */
+/*   Updated: 2022/03/28 14:52:33 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ std::string* ShrubberyCreationForm::tree = createShrubberyArray();
 
 ShrubberyCreationForm::ShrubberyCreationForm(void)
 					: Form("SHRUBBERY", 145, 137), target ("default"){
-	std::cout << "Constructor: default for Form" 
+	std::cout << "Constructor: default for "
+			<< getName() 
 			<< std::endl;
 }
 
@@ -29,15 +30,14 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string& type)
 			<< std::endl;
 }
 
-// ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
-// 					: Form (other), target (other.getTarget()), 
-// 						targetFile (other.targetFile){
-// 	std::cout << "Constructor: copy for " 
-// 			<< getName()
-// 			<< " with target "
-// 			<<  target
-// 			<< std::endl;
-// }
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
+					: Form (other), target (other.getTarget()){
+	std::cout << "Constructor: copy for " 
+			<< getName()
+			<< " with target "
+			<<  target
+			<< std::endl;
+}
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void){
 	std::cout << "Destructor: "
@@ -55,8 +55,13 @@ const std::string	ShrubberyCreationForm::getTarget() const{
 
 
 void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const{
-	if (!openTargetFile())
-		beExecute(executor);		
+	if (!openTargetFile()){
+		beExecute(executor);
+		std::cout << "--->"
+				<< "\U0001F334"
+				<< " New file with palm was created"
+				<< std::endl;
+	}
 }
 
 int	ShrubberyCreationForm::openTargetFile(void) const{
@@ -96,11 +101,9 @@ std::string* ShrubberyCreationForm::createShrubberyArray(void){
 }
 
 void	ShrubberyCreationForm::deleteTreeMemory(void){
-	// for(int i=0; i < 12; i++){
-	// 	delete (tree + i);
-	// }
-	// delete *tree;
+	delete[] tree;
 }
+
 
 
 

@@ -6,17 +6,19 @@
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/20 19:34:36 by msalena           #+#    #+#              #
-#    Updated: 2022/03/27 17:55:14 by msalena          ###   ########.fr        #
+#    Updated: 2022/03/28 14:55:42 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-HEAD		=		Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp
+HEAD		=	Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp \
+				RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 
-SRCS		=		Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp main.cpp
+SRCS		=	Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp PresidentialPardonForm.cpp main.cpp
 
-OBJC		=		${SRCS:.cpp=.o}
+OBJC		=	${SRCS:.cpp=.o}
 
-PROG_NAME	=		Bureaucrat
+PROG_NAME	=	Bureaucrat
 
 C			=	c++
 
@@ -35,7 +37,7 @@ clean:
 				rm -f ${OBJC}
 
 fclean:			clean
-				rm -f ${PROG_NAME}
+				rm -f ${PROG_NAME} *_shrubbery
 
 re:				fclena all
 

@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:58:27 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/27 19:28:34 by msalena          ###   ########.fr       */
+/*   Updated: 2022/03/28 12:52:11 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 #include <iostream>
 #include "Form.hpp"
 
-#define HIGHT "THE HIGHTEST GRADE IS 1"
-#define LOW "THE LOWEST GRADE IS 150"
-
 class	Form;
 
 class	Bureaucrat{
@@ -29,6 +26,8 @@ private:
 public:
 	class		GradeTooHighException;
 	class		GradeTooLowException;
+	class		FormDontSignedException;
+	class		DefaultException;
 	std::string str;
 	
 	Bureaucrat ( void );
@@ -51,12 +50,22 @@ public:
 
 class	Bureaucrat::GradeTooHighException : public std::exception{
 public:
-	GradeTooHighException ( const std::string& error );
+	GradeTooHighException ( const std::string name );
 } ;
 
 class	Bureaucrat::GradeTooLowException : public std::exception{
 public:
-	GradeTooLowException ( const std::string& error );
+	GradeTooLowException ( const std::string name );
+} ;
+
+class	Bureaucrat::FormDontSignedException : public std::exception{
+public:
+	FormDontSignedException ( const std::string name );
+} ;
+
+class	Bureaucrat::DefaultException : public std::exception{
+public:
+	DefaultException ( const std::string name );
 } ;
 
 #endif

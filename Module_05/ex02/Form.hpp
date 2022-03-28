@@ -6,15 +6,13 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:15:58 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/27 19:43:27 by msalena          ###   ########.fr       */
+/*   Updated: 2022/03/28 10:38:31 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include <string>
-#include <iostream>
 #include "Bureaucrat.hpp"
 
 class	Bureaucrat;

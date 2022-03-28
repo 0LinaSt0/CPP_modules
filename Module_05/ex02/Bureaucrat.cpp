@@ -6,20 +6,49 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 18:39:05 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/27 19:58:20 by msalena          ###   ########.fr       */
+/*   Updated: 2022/03/28 12:52:36 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string& error){
-	if(error.compare("NON"))
-		std::cout << error << std::endl;
+Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string name){
+	std::cout << "\033[31m" 
+			<< "!"
+			<< name
+			<< " gave exeption!"
+			<< "\033[0m"
+			<< " ->THE HIGHTEST GRADE IS 1" 
+			<< std::endl;
 }
 
-Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string& error){
-	if(error.compare("NON"))
-		std::cout << error << std::endl;
+Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string name){
+	std::cout << "\033[31m" 
+			<< "!"
+			<< name
+			<< " gave exeption!"
+			<< "\033[0m"
+			<< " -> THE LOWEST GRADE IS 150" 
+			<< std::endl;
+}
+
+Bureaucrat::FormDontSignedException::FormDontSignedException(const std::string name){
+	std::cout << "\033[31m" 
+			<< "!"
+			<< name
+			<< " gave exeption!"
+			<< "\033[0m"
+			<< " -> FORM DIDN'T SIGNED" 
+			<< std::endl;
+}
+
+Bureaucrat::DefaultException::DefaultException(const std::string name){
+	std::cout << "\033[31m" 
+			<< "!"
+			<< name
+			<< " gave exeption!"
+			<< "\033[0m"
+			<< std::endl;
 }
 
 Bureaucrat::Bureaucrat(void) : name ("default"){
@@ -30,9 +59,9 @@ Bureaucrat::Bureaucrat(void) : name ("default"){
 Bureaucrat::Bureaucrat(const std::string& name, int grade) 
 										: name (name){	
 	if (grade < 1)
-		throw GradeTooHighException(HIGHT);
+		throw GradeTooHighException(name);
 	if (grade > 150)
-		throw GradeTooLowException(LOW);
+		throw GradeTooLowException(name);
 	this->grade = grade;
 	std::cout << "Constructor: value assignment for " 
 			<< name << std::endl;
@@ -76,7 +105,7 @@ void	Bureaucrat::increment(void){
 				<< " HAVE ALREADY "
 				<< grade
 				<< " GRADE. ";
-		throw GradeTooHighException(HIGHT);
+		throw GradeTooHighException(name);
 	}
 	this->grade--;
 }
@@ -89,7 +118,7 @@ void	Bureaucrat::decrement(void){
 				<< " HAVE ALREADY "
 				<< grade
 				<< " GRADE. ";
-		throw GradeTooLowException(LOW);
+		throw GradeTooLowException(name);
 	}
 	this->grade++;
 }

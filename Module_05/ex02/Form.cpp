@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:54:02 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/27 19:58:49 by msalena          ###   ########.fr       */
+/*   Updated: 2022/03/28 14:44:47 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ Form::Form(void) : name ("default"), gradeSign (1),
 			<< std::endl;
 }
 
-Form::Form(const std::string name, const int gradeExecute,
-			const int gradeSign) : name (name), 
+Form::Form(const std::string name, const int gradeSign,
+			const int gradeExecute) : name (name), 
 			gradeSign (gradeSign), gradeExecute (gradeExecute){
 	indicSign = 0;
 	if (gradeSign < 1)
-		throw Bureaucrat::GradeTooHighException(HIGHT);
+		throw Bureaucrat::GradeTooHighException(name);
 	if (gradeSign > 150)
-		throw Bureaucrat::GradeTooLowException(LOW);
+		throw Bureaucrat::GradeTooLowException(name);
 	std::cout << "Constructor: value assignment for Form" 
 			<< std::endl;
 }
@@ -73,7 +73,7 @@ void	Form::beSigned(const Bureaucrat& bur){
 		std::cout << "--->" 
 				<< "\U0000274C" << " ";
 		bur.signForm(name, "low grade");
-		throw Bureaucrat::GradeTooLowException(LOW);
+		throw Bureaucrat::DefaultException(name);
 	}
 	std::cout << "--->" 
 				<< "\U00002705" << " ";
@@ -82,14 +82,18 @@ void	Form::beSigned(const Bureaucrat& bur){
 }
 
 void	Form::beExecute(const Bureaucrat& bur) const {
-	if (bur.getGrade() > gradeExecute){
+	if (indicSign){
+		if (bur.getGrade() > gradeExecute){
+			std::cout << "--->" 
+					<< "\U0000274C" << " ";
+			if (bur.getGrade() > gradeExecute)
+				bur.executeForm(name, "low grade");
+			throw Bureaucrat::DefaultException(name);
+		}
 		std::cout << "--->" 
-				<< "\U0000274C" << " ";
-		if (bur.getGrade() > gradeExecute)
-			bur.executeForm(name, "low grade");
-		throw Bureaucrat::GradeTooLowException("NON");
+					<< "\U00002705" << " ";
+		bur.executeForm(name, "NON");	
+	} else {
+		throw Bureaucrat::FormDontSignedException(name);
 	}
-	std::cout << "--->" 
-				<< "\U00002705" << " ";
-	bur.executeForm(name, "NON");
 }
