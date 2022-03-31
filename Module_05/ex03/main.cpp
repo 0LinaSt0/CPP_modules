@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2022/03/28 17:26:33 by msalena          ###   ########.fr       */
+/*   Updated: 2022/03/31 19:29:05 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,11 @@ int	main (void){
 			std::cout <<std::endl;
 
 			//low grade
-			ppf->beSigned(BRR);
+			// ppf->beSigned(BRR);
 			ppf->execute(BRR);
 			std::cout <<std::endl;
 			
 		} catch (std::exception&) {
-			delete scr;
-			delete rrf;
-			delete ppf;
 		}
 		delete scr;
 		delete rrf;
