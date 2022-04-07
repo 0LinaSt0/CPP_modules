@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 21:18:50 by msalena           #+#    #+#             */
-/*   Updated: 2022/04/03 22:33:10 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/07 21:31:39 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,26 @@
 
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 template <typename T>
 class	Array{
 private:
-	T*	array;
+	typedef unsigned int	size_type;
+
+	T*				array;
+	size_type	sizeArray;
 public:
 	Array ( void );
-	Array ( unsigned int n );
+	Array ( size_type n );
 	Array ( const Array& other );
 	~Array ( void );
 
-	T	operator[] ( unsigned int position );
-	
-	T*	getArray( void ) const;
+	T&	operator[] ( size_type position );
 
-	unsigned int	size ( void ) const;
+	T*	getArray ( void ) const;
+
+	size_type	size ( void ) const;
 };
 
 #endif

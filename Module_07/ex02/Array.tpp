@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 22:02:10 by msalena           #+#    #+#             */
-/*   Updated: 2022/04/03 22:33:04 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/07 21:53:48 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 template<typename T>
 Array<T>::Array(void){
 	array = new T[0];
+	sizeArray = 0;
 	std::cout 
 		<< "Constructor: default for Array" 
 		<< std::endl;
@@ -23,13 +24,19 @@ Array<T>::Array(void){
 template<typename T>
 Array<T>::Array(unsigned int n){
 	array = new T[n]();
+	sizeArray = n;
 	std::cout << "Constructor: value assignment for Array" 
-		<< name << std::endl;
+		<< std::endl;
 }
 
 template<typename T>
 Array<T>::Array(const Array& other){
 	//copy_arr_func
+	array = new T[other->sizeArray];
+	sizeArray = other.sizeArray;
+	for (int i = 0; i < other.sizeArray; i++){
+		array[i] = other.array[i];
+	}
 	std::cout << "Constructor: copy for Array"
 			<< std::endl;
 }
@@ -37,13 +44,18 @@ Array<T>::Array(const Array& other){
 template<typename T>
 Array<T>::~Array(void){
 	//delete and std::string
-	std::cout << "Destructor: done here Array" 
+	delete array;
+	std::cout << "Destructor: Array done here" 
 			<< std::endl;
 }
 
 template<typename T>
-T	Array<T>::operator[](unsigned int posititon){
+T&	Array<T>::operator[](unsigned int posititon){
 	//take elem to position and return it
+	if (sizeArray <= posititon || posititon < 0){
+		throw std::exception();
+	}
+	return array[posititon];
 }
 
 template<typename T>
@@ -54,5 +66,6 @@ T*	Array<T>::getArray(void) const{
 template<typename T>
 unsigned int	Array<T>::size(void) const{
 	//for_arr_count
+	return sizeArray;
 }
 
