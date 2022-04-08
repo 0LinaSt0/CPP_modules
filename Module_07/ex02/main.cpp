@@ -1,7 +1,6 @@
 #include "Array.tpp"
 
 int main(void){
-	
 	{
 		std::cout << "--> Let create new INT array"
 				<< std::endl;

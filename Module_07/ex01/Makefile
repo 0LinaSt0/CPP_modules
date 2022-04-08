@@ -6,7 +6,7 @@
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/03 20:03:52 by msalena           #+#    #+#              #
-#    Updated: 2022/04/03 20:47:34 by msalena          ###   ########.fr        #
+#    Updated: 2022/04/08 19:57:43 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ HEAD		=		Iter.hpp
 
 SRCS		=		main.cpp
 
-OBGC		=		${SRCS:.cpp=.o}
+OBJC		=		${SRCS:.cpp=.o}
 
 PROG_NAME	=		./Template
 
@@ -27,11 +27,11 @@ all:			${PROG_NAME}
 %.o:			%.cpp ${HEAD} ${SRCS} Makefile
 				${C} ${FLAGS} -c $< -o $@
 
-${PROG_NAME}:	${HEAD} ${SRCS} ${OBGC} Makefile
-				${C} ${FLAGS} ${OBGC} -o ${PROG_NAME}
+${PROG_NAME}:	${SRCS} ${OBJC}
+				${C} ${FLAGS} ${OBJC} -o ${PROG_NAME}
 
 clean:
-				rm -r ${OBGC}
+				rm -r ${OBJC}
 
 fclean:			clean
 				rm -r ${PROG_NAME}

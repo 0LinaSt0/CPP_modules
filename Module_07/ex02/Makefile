@@ -5,37 +5,40 @@
 #                                                     +:+ +:+         +:+      #
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/04/03 20:03:52 by msalena           #+#    #+#              #
-#    Updated: 2022/04/08 19:58:18 by msalena          ###   ########.fr        #
+#    Created: 2022/04/08 17:41:03 by msalena           #+#    #+#              #
+#    Updated: 2022/04/08 19:56:35 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-HEAD		=		main.hpp
+HDR				=	Array.hpp
 
-SRCS		=		main.cpp
+SRCS			=	main.cpp
 
-OBJC		=		${SRCS:.cpp=.o}
+TPP				=	Array.tpp
 
-PROG_NAME	=		./Template
+OBJC			=	${SRCS:.cpp=.o} #${TPP:.tpp=.o}
 
-C			=		c++
+PROG_NAME		=	./Template
 
-FLAGS		=		-std=c++98 -Wall -Wextra -Werror
+C				=	c++
 
-all:			${PROG_NAME}
+FLAGS			=	-std=c++98 -Wall -Wextra -Werror
 
-%.o:			%.cpp ${HEAD} ${SRCS} Makefile
-				${C} ${FLAGS} -c $< -o $@
 
-${PROG_NAME}:	${SRCS} ${OBJC}
-				${C} ${FLAGS} ${OBJC} -o ${PROG_NAME}
+all:				${PROG_NAME}
 
-clean:
-				rm -r ${OBJC}
+%.o:				%.cpp ${TPP} ${HDR} ${SRCS} Makefile
+					${C} ${FLAGS} -c $< -o $@
 
-fclean:			clean
-				rm -r ${PROG_NAME}
+${PROG_NAME}:		${OBJC} ${SRCS}
+					${C} ${FLAGS} ${OBJC} -o ${PROG_NAME}
 
-re:				fclean all
+clean:				
+					rm -f ${OBJC}
 
-.PHONY:			all clean fcelan re
+fclean:				clean
+					rm -f ${PROG_NAME}
+
+re:					fclean all
+
+.PHONE:				all clean fclean re
