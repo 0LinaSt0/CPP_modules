@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 14:13:57 by msalena           #+#    #+#             */
-/*   Updated: 2022/04/09 14:53:01 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/09 14:59:45 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(void){
 		index = easyfind(contan, 5);
 		std::cout << "	elem[4]: "
 				<< contan[4]
-				<< " // index_elem["
+				<< " == index_elem["
 				<< index
 				<< "]: "
 				<< contan[index]
@@ -42,7 +42,7 @@ int	main(void){
 		index = easyfind(contan, 3);
 		std::cout << "	elem[2]: "
 				<< contan[2]
-				<< " // index_elem["
+				<< " == index_elem["
 				<< index
 				<< "]: "
 				<< contan[index]
@@ -51,7 +51,7 @@ int	main(void){
 		index = easyfind(contan, 9);
 		std::cout << "	elem[8]: "
 				<< contan[8]
-				<< " // index_elem["
+				<< " == index_elem["
 				<< index
 				<< "]: "
 				<< contan[index]
