@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:54:02 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/28 17:09:34 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/03 17:08:00 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,12 @@ void	Form::beExecute(const Bureaucrat& bur) const {
 		if (bur.getGrade() > gradeExecute){
 			std::cout << "--->" 
 					<< "\U0000274C" << " ";
-			if (bur.getGrade() > gradeExecute)
-				bur.executeForm(name, "low grade");
+				bur.executeForm(*this);
 			throw Bureaucrat::DefaultException(name);
 		}
 		std::cout << "--->" 
 					<< "\U00002705" << " ";
-		bur.executeForm(name, "NON");	
+		bur.executeForm(*this);	
 	} else {
 		throw Bureaucrat::FormDontSignedException(name);
 	}

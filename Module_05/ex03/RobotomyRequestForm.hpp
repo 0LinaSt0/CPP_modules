@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 10:29:05 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/28 12:18:04 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/03 14:14:51 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ROB_REQ_FORM_HPP
 
 #include "Form.hpp"
+#include <time.h>
 
 class RobotomyRequestForm : public Form{
 private:

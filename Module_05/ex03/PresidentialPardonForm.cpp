@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 13:07:17 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/28 14:50:01 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/03 17:12:51 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,10 @@ const std::string	PresidentialPardonForm::getTarget(void) const{
 }
 
 void	PresidentialPardonForm::execute(Bureaucrat const& executor) const{
-	//<target> has been pardoned by Zaphod Beeblebrox
 	beExecute(executor);
 	std::cout << "--->"
 			<< "\U0001F468" << " "
 			<< target
-			<< " has been pardoned by Zaphod Beeblebrox"
+			<< " has been pardoned"
 			<< std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 18:39:05 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/28 12:52:36 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/03 17:03:14 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,20 +141,16 @@ void	Bureaucrat::signForm(const std::string& nameForm,
 	}
 }
 
-void	Bureaucrat::executeForm(const std::string& nameForm,
-						const std::string& reason) const{
-	if (!reason.compare("NON")){
-		std::cout << name 
-				<< " execute "
-				<< nameForm
-				<< std::endl;
-	}
-	else{
+void	Bureaucrat::executeForm(Form const & form) const{
+	if (grade > form.getGradeExecute()){
 		std::cout << name
 				<< " couldn't execute "
-				<< nameForm
-				<< " because "
-				<< reason
-				<<std::endl;
+				<< form.getName()
+				<< std::endl;
+	} else {
+		std::cout << name 
+				<< " execute "
+				<< form.getName()
+				<< std::endl;
 	}
 }

@@ -6,14 +6,13 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 19:19:26 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/20 20:31:30 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/03 14:22:41 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 std::ostream&	operator<<(std::ostream& o, const Bureaucrat& new_){
-	//<name>, bureaucrat grade <grade>
 	o << new_.getName() 
 		<< ", bureaucrat grade "
 		<< new_.getGrade();
@@ -69,7 +68,10 @@ int	main(void){
 		
 		
 	} catch (std::exception& exept) {
-		
+		std::cout << "-->"
+				<< "\U0000274C"
+				<< " upss.."
+				<< std::endl;
 	}
 	return (0);
 	

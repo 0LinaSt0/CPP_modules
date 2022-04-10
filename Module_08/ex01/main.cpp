@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 19:06:01 by msalena           #+#    #+#             */
-/*   Updated: 2022/04/09 22:07:44 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/10 12:40:50 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ int	main(void){
 	
 	try{
 		{
-		Span sp = Span(10);
-			// Span	sp(10);
+			Span sp = Span(10);
 			sp.addNumber(6);
 			sp.addNumber(3);
 			sp.addNumber(17);
@@ -55,6 +54,5 @@ int	main(void){
 		
 	} catch (std::exception& ex){
 		std::cout << "Error" << std::endl;
-		// std::cout << ex.what() << std::endl; как передать что-то в what
 	}
 }

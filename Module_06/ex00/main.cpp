@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 21:36:52 by msalena           #+#    #+#             */
-/*   Updated: 2022/04/02 21:36:53 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/03 17:42:01 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	overCheck(double Double, std::string str, tOverflows* over){
 			over->Int = 1;
 			//check overflow FLOAT
 			if ((static_cast<float>(Double) == +1.0/0.0 
-						&& !(!str.compare("+inf") || !str.compare("+inff")))
+						&& !(!str.compare("+inf") || !str.compare("+inff")
+							|| !str.compare("inf") || !str.compare("inff")))
 				|| (static_cast<float>(Double) == -1.0/0.0 
 						&& !(!str.compare("-inf") || !str.compare("-inff")))){
 				over->Float = 1;
@@ -53,7 +54,7 @@ bool	compareFloats(float A, float B){
 	return false;
 }
 
-int	main(int argc, char **argv){
+int	main(int argc, char **argv){	
 	if (argc != 2){
 		std::cout << "Error: please, give me one argument: "
 				<< "char, int, float or double." 

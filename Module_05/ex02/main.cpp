@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2022/03/28 14:53:01 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/03 15:45:11 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,20 @@
 std::ostream&	operator<<(std::ostream& inout, const Bureaucrat& bur){
 		inout << bur.getName();
 	return (inout);
+}
+
+std::ostream&	operator<<(std::ostream& inout, const Form& form){
+	inout << "--->"
+		<< "\U0001F9FE" << " "
+		<< form.getName()
+		<< " form have:" << std::endl
+		<< "	singl status: "
+		<< form.getIndicSign() << std::endl
+		<< "	gradeSign level: "
+		<< form.getGradeSign() << std::endl
+		<< "	gradeExecute level: "
+		<< form.getGradeExecute();
+	return (inout); 
 }
 
 /*Grade for different doings:
@@ -85,6 +99,8 @@ int	main (void){
 					<< " is sorrying GARDINER for their terrible palm~~~"
 					<< std::endl;
 			p_form.execute(MASTER);
+
+			std::cout << std::endl << s_form << std::endl;
 			std::cout << std::endl;
 		} catch (std::exception&){}
 	}

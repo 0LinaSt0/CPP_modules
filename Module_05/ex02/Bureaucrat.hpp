@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 17:58:27 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/28 12:52:11 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/03 17:06:40 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ public:
 	void		decrement ( void );
 	void		signForm ( const std::string& nameForm,
 								const std::string& reason ) const;
-	void		executeForm ( const std::string& nameForm,
-						const std::string& reason ) const;
+	void		executeForm ( Form const & form ) const;
 } ;
+
 
 class	Bureaucrat::GradeTooHighException : public std::exception{
 public:

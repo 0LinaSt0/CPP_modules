@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:54:02 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/28 14:44:47 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/03 17:04:07 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,17 @@ void	Form::beSigned(const Bureaucrat& bur){
 	indicSign = 1;
 }
 
-void	Form::beExecute(const Bureaucrat& bur) const {
+void	Form::beExecute(const Bureaucrat& bur) const{
 	if (indicSign){
 		if (bur.getGrade() > gradeExecute){
 			std::cout << "--->" 
 					<< "\U0000274C" << " ";
-			if (bur.getGrade() > gradeExecute)
-				bur.executeForm(name, "low grade");
+				bur.executeForm(*this);
 			throw Bureaucrat::DefaultException(name);
 		}
 		std::cout << "--->" 
 					<< "\U00002705" << " ";
-		bur.executeForm(name, "NON");	
+		bur.executeForm(*this);	
 	} else {
 		throw Bureaucrat::FormDontSignedException(name);
 	}

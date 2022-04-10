@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:59:47 by msalena           #+#    #+#             */
-/*   Updated: 2022/04/02 21:27:10 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/10 19:03:42 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 #include <iomanip>
 #include <math.h>
 
-typedef struct	tOverflows{
+struct	tOverflows{
 	int	Int;
 	int	Float;
 	int	Double;
-}sOverflows;
+} ;
 
 bool	compareDoubles(double A, double B);
 bool	compareFloats(float A, float B);

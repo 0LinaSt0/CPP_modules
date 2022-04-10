@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Iter.hpp                                           :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 20:06:39 by msalena           #+#    #+#             */
-/*   Updated: 2022/04/09 15:17:03 by msalena          ###   ########.fr       */
+/*   Created: 2022/04/03 10:44:40 by msalena           #+#    #+#             */
+/*   Updated: 2022/04/03 11:20:54 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#ifndef MAIN_HPP
+#define MAIN_HPP
 
+#include <stdint.h>
 #include <iostream>
 #include <string>
 
-template <typename T>
-void	f(T& elem){
-	std::cout << elem;
-}
+typedef struct Data{
+	std::string	whoIam;
+	uintptr_t	myIntaddress;
+}Data;
 
-template <typename T, typename U>
-void	iter(T* arr, U length, void (f)(T const&)){
-	for (U iter = 0; iter < length; iter++){
-		std::cout << "	arr["
-				<< iter
-				<< "]: ";
-		f(arr[iter]);
-		std::cout << std::endl;
-	}
-}
 
 #endif

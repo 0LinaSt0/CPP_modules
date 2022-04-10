@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:54:02 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/27 17:35:25 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/03 15:20:42 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	Form::beSigned(const Bureaucrat& bur){
 		bur.signForm(name, "low grade");
 		throw Bureaucrat::GradeTooLowException(LOW);
 	}
-	// exit (0);
 	std::cout << "--->" 
 				<< "\U00002705" << " ";
 	bur.signForm(name, "NON");

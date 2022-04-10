@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 14:13:57 by msalena           #+#    #+#             */
-/*   Updated: 2022/04/09 14:59:45 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/10 12:34:41 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	main(void){
 				<< contan[index]
 				<< std::endl;
 		
+		//error_example
 		index = easyfind(contan, 9);
 		std::cout << "	elem[8]: "
 				<< contan[8]

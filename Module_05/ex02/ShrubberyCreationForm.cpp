@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 16:39:36 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/28 14:52:33 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/03 15:24:58 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	ShrubberyCreationForm::openTargetFile(void) const{
 	return (0);
 }
 
-//STATIC_METHODS
+//STATIC_METHOD
 std::string* ShrubberyCreationForm::createShrubberyArray(void){
 	std::string	*n_tree = new std::string[12];
 	

@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 10:36:11 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/28 17:11:15 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/03 14:14:32 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,9 @@ const std::string	RobotomyRequestForm::getTarget(void) const{
 
 void	RobotomyRequestForm::execute(Bureaucrat const& executor) const{
 	beExecute(executor);
-	std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+	time_t now;
 
+	time (&now);
 	std::cout << "--->"
 		<< "\U0001F916" << " "
 		<< noise;

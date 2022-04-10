@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 20:34:56 by msalena           #+#    #+#             */
-/*   Updated: 2022/04/09 21:26:57 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/10 18:57:14 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <stack>
+#include <list>
 
 template <typename T>
 class	MutantStack : public std::stack<T> {

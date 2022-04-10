@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Iter.hpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 20:06:39 by msalena           #+#    #+#             */
-/*   Updated: 2022/04/09 15:17:03 by msalena          ###   ########.fr       */
+/*   Created: 2022/04/03 11:27:25 by msalena           #+#    #+#             */
+/*   Updated: 2022/04/03 14:12:27 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#ifndef BASE_HPP
+#define BASE_HPP
 
 #include <iostream>
 #include <string>
+#include <unistd.h>
+#include <time.h>
 
-template <typename T>
-void	f(T& elem){
-	std::cout << elem;
-}
+#define aTYPE "A"
+#define bTYPE "B"
+#define cTYPE "C"
+#define EXCEPTION "something wrong with Base link"
 
-template <typename T, typename U>
-void	iter(T* arr, U length, void (f)(T const&)){
-	for (U iter = 0; iter < length; iter++){
-		std::cout << "	arr["
-				<< iter
-				<< "]: ";
-		f(arr[iter]);
-		std::cout << std::endl;
-	}
-}
+
+class	Base{
+public:
+	virtual ~Base ( void ){};
+} ;
+
+class	A : public Base{};
+
+class	B : public Base{};
+
+class	C : public Base{};
+
+Base*	generate(void);
+void	identify(Base* p);
+void	identify(Base& p);
 
 #endif

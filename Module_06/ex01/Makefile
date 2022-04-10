@@ -5,20 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: msalena <msalena@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/20 19:34:36 by msalena           #+#    #+#              #
-#    Updated: 2022/04/03 13:58:39 by msalena          ###   ########.fr        #
+#    Created: 2022/04/03 11:11:59 by msalena           #+#    #+#              #
+#    Updated: 2022/04/03 13:57:58 by msalena          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-HEAD		=	Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp \
-				RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+HDR			=	main.hpp
 
-SRCS		=	Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp \
-				RobotomyRequestForm.cpp PresidentialPardonForm.cpp main.cpp
+SRC			=	main.cpp
 
-OBJC		=	${SRCS:.cpp=.o}
+OBJC		=	${SRC:.cpp=.o}
 
-PROG_NAME	=	Bureaucrat
+PROG_NAME	=	./Casting
 
 C			=	c++
 
@@ -27,18 +25,18 @@ FLAGS		=	-std=c++98 -Wall -Wextra -Werror
 
 all:			${PROG_NAME}
 
-%.o:			%.cpp ${HEAD}
+%.o:			%.cpp ${HDR}
 				${C} ${FLAGS} -c $< -o $@
 
-${PROG_NAME}:	${SRCS} ${HEAD} ${OBJC} Makefile
+${PROG_NAME}:	${SRC} ${HDR} ${OBJC} Makefile
 				${C} ${FLAGS} ${OBJC} -o ${PROG_NAME}
 
-clean:			
+clean:	
 				rm -f ${OBJC}
 
 fclean:			clean
-				rm -f ${PROG_NAME} *_shrubbery
+				rm -f ${PROG_NAME}
 
-re:				fclena all
+re:				fclean all
 
 .PHONY:			all clean fclean re

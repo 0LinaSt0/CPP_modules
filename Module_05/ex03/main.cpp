@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2022/03/31 19:29:05 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/10 19:01:03 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,20 @@
 std::ostream&	operator<<(std::ostream& inout, const Bureaucrat& bur){
 		inout << bur.getName();
 	return (inout);
+}
+
+std::ostream&	operator<<(std::ostream& inout, const Form* form){
+	inout << "--->"
+		<< "\U0001F9FE" << " "
+		<< form->getName()
+		<< " form have:" << std::endl
+		<< "	singl status: "
+		<< form->getIndicSign() << std::endl
+		<< "	gradeSign level: "
+		<< form->getGradeSign() << std::endl
+		<< "	gradeExecute level: "
+		<< form->getGradeExecute();
+	return (inout); 
 }
 
 /*Grade for different doings:
@@ -57,15 +71,15 @@ int	main (void){
 			std::cout <<std::endl;
 
 			//low grade
-			// ppf->beSigned(BRR);
+			ppf->beSigned(BRR);
 			ppf->execute(BRR);
-			std::cout <<std::endl;
+
+			// std::cout << scr << std::endl;
+			std::cout << std::endl;
 			
-		} catch (std::exception&) {
-		}
+		} catch (std::exception&) {}
 		delete scr;
 		delete rrf;
 		delete ppf;
 	}
 }
-// PROBLEMS WITH DELETE!!!!!!!!!!!!!

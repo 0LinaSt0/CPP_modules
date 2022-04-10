@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 16:18:53 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/28 17:04:59 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/10 19:00:30 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ Form*	Intern::makeForm(const std::string& nameForm, const std::string& targetFor
 	case 2:
 		return new PresidentialPardonForm(targetForm);
 	default:
-		return NULL;
+		std::cout << "Error: invalid form name" << std::endl;
+		throw std::exception();
 	}
 }
 

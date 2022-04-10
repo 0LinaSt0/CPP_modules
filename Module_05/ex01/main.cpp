@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:37:47 by msalena           #+#    #+#             */
-/*   Updated: 2022/03/27 17:26:01 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/03 15:42:59 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,20 @@ std::ostream&	operator<<(std::ostream& inout, const Bureaucrat& bur){
 	return (inout);
 }
 
+std::ostream&	operator<<(std::ostream& inout, const Form& form){
+	inout << "--->"
+		<< "\U0001F9FE" << " "
+		<< form.getName()
+		<< " form have:" << std::endl
+		<< "	singl status: "
+		<< form.getIndicSign() << std::endl
+		<< "	gradeSign level: "
+		<< form.getGradeSign() << std::endl
+		<< "	gradeExecute level: "
+		<< form.getGradeExecute();
+	return (inout); 
+}
+
 int	main (void){
 	
 	/////////////TAKE_NEW_BUREAUCRATS//////////
@@ -93,6 +107,7 @@ int	main (void){
 		report.beSigned(one);
 		// report.beSigned(two);//error
 
+		std::cout << report << std::endl;
 		std::cout << std::endl;
 	} catch (std::exception& exept){}
 

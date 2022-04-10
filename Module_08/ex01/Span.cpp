@@ -6,7 +6,7 @@
 /*   By: msalena <msalena@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 16:03:57 by msalena           #+#    #+#             */
-/*   Updated: 2022/04/09 22:06:23 by msalena          ###   ########.fr       */
+/*   Updated: 2022/04/10 12:41:39 by msalena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,6 @@ void	Span::addNumber(int added){
 	if (indexNextLastElem == sizeArr || added < 0)
 		throw std::exception();
 	intArr[indexNextLastElem] = added;
-	// std::cout << "elem: "
-	// 		<< intArr[indexNextLastElem]
-	// 		<<std::endl;
 	indexNextLastElem++;
 }
 
@@ -61,9 +58,6 @@ int	Span::shortestSpan(void){
 	for (size_t i = 0; i < indexNextLastElem; i++){
 		for (size_t z=0; z < indexNextLastElem; z++){
 			if (intArr[i] >= intArr[z] && z != i){
-				// std::cout << "I: " << intArr[i]
-				// 		<< "     Z: " << intArr[z]
-				// 		<< std::endl;
 				if (!firstFl){
 					minSpan = intArr[i] - intArr[z];
 					firstFl++;
